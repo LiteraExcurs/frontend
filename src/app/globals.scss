@@ -30,6 +30,9 @@ $semi-accent-base-color: #913422;
   position: relative;
   min-height: 100vh;
   background-color: $primary-color;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 .main {

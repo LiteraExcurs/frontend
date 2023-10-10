@@ -1,0 +1,31 @@
+@use '../../app/globals.scss';
+
+%button-shared {
+    width: 323px;
+    height: 60px;
+    border-radius: 29px;
+    border: 2px solid globals.$primary-color;
+    color: globals.$primary-color;
+    background: none;
+}
+
+%button-shared:hover {
+    cursor: pointer;
+}
+
+.default {
+    @extend %button-shared;
+    line-height: 26.66px;
+    font-size: 20px;
+    font-weight: 900;
+    background: color-mix(in srgb, globals.$black-color 20%, transparent);
+    box-shadow: 8px 4px 40px 0px rgba(0, 0, 0, 0.25);
+    
+}
+
+.email {
+    @extend %button-shared;
+    text-decoration: underline;
+    line-height: 21.33px;
+    font-size: 16px;
+}
