@@ -1,0 +1,66 @@
+.button {
+  box-sizing: border-box;
+  font-size: 20px;
+  line-height: 26px;
+  font-weight: 700;
+  border: 3px solid #e8e1d7;
+  border-radius: 29px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.95;
+  }
+
+  &__color {
+    &_orangered {
+      background-color: #b5412a;
+    }
+
+    &_rainforest {
+      background-color: #04403e;
+    }
+    &_slategray {
+      background-color: #6a898b;
+    }
+
+    &_pinegreen {
+      background-color: #033332;
+    }
+
+    &_brown {
+      background-color: #573225;
+    }
+  }
+
+  &__size {
+    &_s {
+      width: 174px;
+      height: 75px;
+    }
+
+    &_m {
+      width: 220px;
+      height: 75px;
+    }
+
+    &_l {
+      width: 232px;
+      height: 60px;
+    }
+
+    &_xl {
+      width: 270px;
+      height: 81px;
+      font-size: 25px;
+      line-height: 33.3px;
+    }
+  }
+
+  &__shadow_on {
+    box-shadow: 8px 4px 40px 0px rgba(0, 0, 0, 0.25);
+  }
+}
