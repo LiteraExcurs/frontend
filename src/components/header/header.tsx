@@ -1,5 +1,5 @@
 import Link from "next/link"
-import logo from '../../images/LiteraEx_logo_color 2.svg'
+import logo from '../../../public/images/LiteraEx_logo_color 2.svg'
 import Image from "next/image"
 import { HeaderBar } from "../header-bar/header-bar"
 import styles from "./header.module.scss"
@@ -7,7 +7,7 @@ import styles from "./header.module.scss"
 export const Header = () => {
     return(
         <header className={styles.header}>
-          <Link href='/'><Image src={logo} alt='Логотип компании'/></Link>
+          <Link href='/'><Image className={styles.icon} src={logo} alt='Логотип компании'/></Link>
           <div className={styles.infoContainer}>
             <ul className={styles.navBar}>
                 <li><Link className={styles.navLink} href='/'>На главную</Link></li>

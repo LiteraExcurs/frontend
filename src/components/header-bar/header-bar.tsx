@@ -1,7 +1,10 @@
 import { SearchField } from "@/ui/search-field/search-field"
 import Image from "next/image"
 import Link from "next/link"
-import phoneIcon from '../../images/phone_14402 1.svg'
+import phoneIcon from '../../../public/images/8666632_phone_icon 1.svg'
+import mailIcon from '../../../public/images/8666723_mail_icon 1.svg'
+import tgIcon from '../../../public/images/8134646_logo_telegram_icon 1.svg'
+import vkIcon from '../../../public/images/vk_fzvk76or0cbp_512 1.svg'
 import styles from './header-bar.module.scss'
 
 export const HeaderBar = () => {
@@ -11,12 +14,12 @@ export const HeaderBar = () => {
             <ul className={styles.iconZone}>
               <li><Link href='/'><Image src={phoneIcon} alt='Иконка телефона'/>
                 <p>Заказать звонок</p></Link></li>
-              <li><Link href='/'><Image src={phoneIcon} alt='Иконка телефона'/>
-                <p>Заказать звонок</p></Link></li>
-              <li><Link href='/'><Image src={phoneIcon} alt='Иконка телефона'/>
-                <p>Заказать звонок</p></Link></li>
-              <li><Link href='/'><Image src={phoneIcon} alt='Иконка телефона'/>
-                <p>Заказать звонок</p></Link></li>
+              <li><Link href='/'><Image src={mailIcon} alt='Иконка телефона'/>
+                <p>Напишите нам</p></Link></li>
+              <li><Link href='/'><Image src={tgIcon} alt='Иконка телефона'/>
+                </Link></li>
+              <li><Link href='/'><Image src={vkIcon} alt='Иконка телефона'/>
+                </Link></li>
             </ul>
         </div>
     )

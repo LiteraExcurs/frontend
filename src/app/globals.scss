@@ -37,6 +37,9 @@ $semi-accent-base-color: #913422;
 
 .main {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .footer {

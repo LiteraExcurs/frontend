@@ -9,6 +9,12 @@
     color: globals.$white-color;
 }
 
+.icon {
+    object-fit: cover;
+    width: 151px;
+    height: 151px;
+}
+
 .navBar {
     display: flex;
     flex-direction: column;

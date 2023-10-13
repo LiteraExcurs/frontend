@@ -1,5 +1,5 @@
 import styles from './search-field.module.scss'
-import searchIcon from '../../images/Vector.svg'
+import searchIcon from '../../../public/images/Vector.svg'
 import Image from 'next/image'
 
 export const SearchField = () => {

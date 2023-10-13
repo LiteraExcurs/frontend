@@ -6,6 +6,7 @@
 }
 
 .iconZone {
+    max-width: 410px;
     display: flex;
     flex-direction: row;
     gap: 40px;
@@ -20,8 +21,16 @@
         flex-direction: row;
         align-items: center;
         gap: 9px;
+        text-decoration: none;
+        color: inherit;
+        img {
+          width: 37px;
+          height: 37px;
+        }
         p{
           margin: 0;
+          font-size: 14px;
+          line-height: 18.66px;
         }
       }
     }

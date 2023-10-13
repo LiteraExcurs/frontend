@@ -1,13 +1,13 @@
 import Image from 'next/image'
 import styles from './footer.module.scss'
-import darkLogo from '../../images/LiteraEx_logo_black 1.svg'
+import darkLogo from '../../../public/images/LiteraEx_logo_black 1.svg'
 import Link from 'next/link'
 import { RoundButton } from '@/ui/round-button/round-button'
 
 export const Footer = () => {
     return(
         <footer className={styles.footer}>
-            <Image src={darkLogo} alt='Логотип компании'/>
+            <Image className={styles.icon} src={darkLogo} alt='Логотип компании'/>
                 <ul className={styles.navBar}>
                     <h3 className={styles.navTitle}>Меню</h3>
                     <li><Link className={styles.navLink} href='/'>На главную</Link></li>
