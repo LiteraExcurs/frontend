@@ -13,13 +13,17 @@
   border-radius: 29px;
   transition: background-color 0.3s ease-in-out, opacity 0.3s ease-in-out;
 
-  &:hover {
+  &:hover:not(:disabled) {
     cursor: pointer;
     background-color: #993824;
   }
 
-  &:active { 
+  &:active:not(:disabled) { 
     transform: scale(0.99);
+  }
+
+  &:disabled {
+    background-color: gray;
   }
 
   &__text {

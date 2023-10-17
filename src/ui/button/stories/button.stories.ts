@@ -80,3 +80,12 @@ export const RequestGreen: Story = {
     backgroundColor: 'pinegreen',
   },
 };
+
+export const DisabledButton: Story = {
+  args: {
+    buttonType: ButtonType.Card,
+    label: 'Пушкин в городе',
+    text: 'Тверской бульвар и окрестности',
+    disabled: true,
+  },
+};
