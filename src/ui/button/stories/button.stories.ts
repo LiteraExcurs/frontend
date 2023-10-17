@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
+
 import { Button } from '../button';
+import { ButtonType } from '../types';
 
 const meta = {
   title: 'UI/Button',
@@ -15,14 +17,14 @@ type Story = StoryObj<typeof meta>;
 
 export const Filter: Story = {
   args: {
-    buttonType: 'filter',
+    buttonType: ButtonType.Filter,
     label: 'По Москве',
   },
 };
 
 export const FilterWithSign: Story = {
   args: {
-    buttonType: 'filter',
+    buttonType: ButtonType.Filter,
     label: 'По Москве',
     signPic: '/images/from-moscow.svg',
   },
@@ -30,21 +32,21 @@ export const FilterWithSign: Story = {
 
 export const Card: Story = {
   args: {
-    buttonType: 'card',
+    buttonType: ButtonType.Card,
     label: 'Архитектура Варварки',
   },
 };
 
 export const CardWithLongLabel: Story = {
   args: {
-    buttonType: 'card',
+    buttonType: ButtonType.Card,
     label: 'Архитектура Варварки Архитектура Варварки',
   },
 };
 
 export const CardWithText: Story = {
   args: {
-    buttonType: 'card',
+    buttonType: ButtonType.Card,
     label: 'Пушкин в городе',
     text: 'Тверской бульвар и окрестности',
   },
@@ -52,28 +54,28 @@ export const CardWithText: Story = {
 
 export const City: Story = {
   args: {
-    buttonType: 'city',
+    buttonType: ButtonType.City,
     label: 'Калуга',
   },
 };
 
 export const Subscribe: Story = {
   args: {
-    buttonType: 'subscribe',
+    buttonType: ButtonType.Subscribe,
     label: 'Подписаться',
   },
 };
 
 export const RequestBrown: Story = {
   args: {
-    buttonType: 'request',
+    buttonType: ButtonType.Request,
     label: 'Оставить заявку',
   },
 };
 
 export const RequestGreen: Story = {
   args: {
-    buttonType: 'request',
+    buttonType: ButtonType.Request,
     label: 'Оставить заявку',
     backgroundColor: 'pinegreen',
   },

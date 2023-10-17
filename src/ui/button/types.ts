@@ -1,4 +1,10 @@
-export type ButtonType = 'filter' | 'card' | 'city' | 'subscribe' | 'request';
+export enum ButtonType {
+  Filter = 'filter',
+  Card =  'card',
+  City = 'city',
+  Subscribe = 'subscribe',
+  Request = 'request',
+};
 
 export type ButtonColor =
   | 'orangered'

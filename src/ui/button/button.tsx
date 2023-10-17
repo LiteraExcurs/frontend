@@ -8,7 +8,7 @@ import {
   type ButtonHTMLAttributes,
 } from 'react';
 
-import type { ButtonColor, ButtonType } from './types';
+import { ButtonColor, ButtonType } from './types';
 import styles from './button.module.scss';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -57,7 +57,7 @@ export const Button = ({
   return (
     <button
       ref={buttonRef}
-      type={buttonType === 'subscribe' ? 'submit' : 'button'}
+      type={buttonType === ButtonType.Subscribe ? 'submit' : 'button'}
       onClick={onClick ? onClick : undefined}
       className={`
         ${styles.button}
