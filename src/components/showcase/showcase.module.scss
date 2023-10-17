@@ -2,6 +2,10 @@
 
 .container {
     min-height: 1731px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
     background: url("~/public/images/фоновая москва.png") no-repeat center center;
 }
 .title {
@@ -14,4 +18,14 @@
     line-height: 111.97px;
     letter-spacing: 0.4rem;
     opacity: 50%;
+}
+
+.cardsZone {
+    display: flex;
+    max-width: 1160px;
+    flex-wrap: wrap;
+    gap: 129px 169px;
+    justify-content: center;
+    align-items: flex-start;
+    list-style: none;
 }
