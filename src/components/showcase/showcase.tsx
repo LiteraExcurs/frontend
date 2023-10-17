@@ -1,3 +1,6 @@
+"use client"
+
+import { useSearchParams } from 'next/navigation'
 import { Card } from '../card/card'
 import { FilterBar } from '../filter-bar/filter-bar'
 import styles from './showcase.module.scss'
@@ -38,6 +41,11 @@ export const MockData = [
 ]
 
 export const Showcase = () => {
+    const searchParams = useSearchParams();
+    const selectedFilter = searchParams.get('tours');
+    // console.log(selectedFilter); 
+    // с помощью selectedFilter собираюсь делать запрос на бек за списком карточек
+
     return (
         <section>
             <h1 className={styles.title}>ЛИТЕРАТУРНЫЕ ПРОГУЛКИ</h1>
