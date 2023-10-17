@@ -1,0 +1,17 @@
+@use "../../app/globals.scss";
+
+.container {
+    min-height: 1731px;
+    background: url("~/public/images/фоновая москва.png") no-repeat center center;
+}
+.title {
+    color: globals.$pale-base-color;
+    min-height: 202px;
+    margin: auto;
+    text-align: center;
+    font-weight: 850;
+    font-size: 84px;
+    line-height: 111.97px;
+    letter-spacing: 0.4rem;
+    opacity: 50%;
+}

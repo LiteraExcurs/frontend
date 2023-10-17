@@ -2,7 +2,6 @@ import Image from 'next/image'
 import styles from './footer.module.scss'
 import darkLogo from '../../../public/images/LiteraEx_logo_black 1.svg'
 import Link from 'next/link'
-import { RoundButton } from '@/ui/round-button/round-button'
 
 export const Footer = () => {
     return(
@@ -23,8 +22,8 @@ export const Footer = () => {
                 </ul>
                 <div>
                     <h3 className={styles.navTitle}>Подписаться на новости</h3>
-                    <RoundButton text='e-mail@example.com' email={true}/>
-                    <RoundButton text='Подписаться'/>
+                    <input placeholder='e-mail@example.com'></input>
+                    <button>Подписаться</button>
                 </div>
         </footer>
     )
