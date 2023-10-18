@@ -1,0 +1,120 @@
+.button {
+  position: relative;
+  width: 220px;
+  height: 75px;
+  box-sizing: border-box;
+  padding: 5px 10px;
+  color: #e8e1d7;
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 700;
+  border: 3px solid #e8e1d7;
+  border-radius: 29px;
+  transition: background-color 0.3s ease-in-out, opacity 0.3s ease-in-out;
+
+  &:hover:not(:disabled) {
+    cursor: pointer;
+  }
+
+  &:active:not(:disabled) {
+    transform: scale(0.99);
+  }
+
+  &:disabled {
+    background-color: gray;
+
+    &:hover {
+      background-color: gray;
+    }
+  }
+
+  &_background {
+    &_default {
+      background-color: #b5412a;
+
+      &:hover {
+        background-color: #993824;
+      }
+    }
+
+    &_slategray {
+      background-color: #6a898b;
+
+      &:hover {
+        background-color: #527274;
+      }
+    }
+
+    &_orangered {
+      background-color: #913422;
+
+      &:hover {
+        background-color: #822411;
+      }
+    }
+
+    &_green {
+      background-color: #04403e;
+
+      &:hover {
+        background-color: #033332;
+      }
+    }
+
+    &_pinegreen {
+      background-color: #04403e;
+
+      &:hover {
+        background-color: #033332;
+        opacity: 0.85;
+      }
+    }
+
+    &_brown {
+      background-color: #573225;
+
+      &:hover {
+        background-color: #402217;
+      }
+    }
+  }
+
+  &_type {
+    &_filter {
+      width: 185px;
+      box-shadow: 8px 4px 40px 0px rgba(0, 0, 0, 0.25);
+    }
+
+    &_send {
+      width: 186px;
+      height: 65px;
+    }
+
+    &_subscribe {
+      width: 232px;
+      height: 60px;
+      box-shadow: 8px 4px 40px 0px rgba(0, 0, 0, 0.25);
+    }
+
+    &_request {
+      width: 270px;
+      height: 81px;
+      font-size: 25px;
+    }
+  }
+
+  &__text {
+    display: block;
+    margin-top: 5px;
+    font-size: 13px;
+    font-weight: 400;
+  }
+
+  &__sign {
+    position: absolute;
+    width: 240px;
+    height: 60px;
+    bottom: -45px;
+    left: 30px;
+  }
+}
