@@ -9,8 +9,9 @@ import {
 } from 'react';
 
 import { ButtonType, Location } from './types';
-import styles from './button.module.scss';
 import { composeButtonStyles } from './utils';
+
+import styles from './button.module.scss';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   buttonType: ButtonType;
