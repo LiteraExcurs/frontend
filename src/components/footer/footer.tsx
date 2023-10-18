@@ -2,6 +2,7 @@ import Image from 'next/image'
 import styles from './footer.module.scss'
 import darkLogo from '../../../public/images/LiteraEx_logo_black 1.svg'
 import Link from 'next/link'
+import { InputField } from '@/ui/input-field/input-field'
 
 export const Footer = () => {
     return(
@@ -22,8 +23,10 @@ export const Footer = () => {
                 </ul>
                 <div>
                     <h3 className={styles.navTitle}>Подписаться на новости</h3>
-                    <input placeholder='e-mail@example.com'></input>
-                    <button>Подписаться</button>
+                    <div className={styles.subsBar}>
+                        <InputField type='subscribe' />
+                        <button>Подписаться</button>
+                    </div>
                 </div>
         </footer>
     )

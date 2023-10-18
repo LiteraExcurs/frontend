@@ -1,4 +1,4 @@
-import { SearchField } from "@/ui/search-field/search-field"
+import { InputField } from "@/ui/input-field/input-field"
 import Image from "next/image"
 import Link from "next/link"
 import phoneIcon from '../../../public/images/8666632_phone_icon 1.svg'
@@ -10,7 +10,7 @@ import styles from './header-bar.module.scss'
 export const HeaderBar = () => {
     return (
         <div className={styles.container}>
-            <SearchField />
+            <InputField type='search' />
             <ul className={styles.iconZone}>
               <li><Link href='/'><Image src={phoneIcon} alt='Иконка телефона'/>
                 <p>Заказать звонок</p></Link></li>

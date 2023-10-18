@@ -39,3 +39,10 @@
     font-weight: bolder;
     line-height: 29.33px;
 }
+
+.subsBar {
+    display: flex;
+    gap: 63px;
+    align-items: first baseline;
+    padding-top: 16px;
+}
