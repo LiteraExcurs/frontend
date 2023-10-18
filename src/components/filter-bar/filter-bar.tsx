@@ -2,6 +2,8 @@
 import { useEffect, useState } from 'react';
 import styles from './filter-bar.module.scss'
 import { useRouter } from 'next/navigation';
+import { Button } from '@/ui/button';
+import { ButtonType, Location } from '@/ui/button/types';
 
 
 export const FilterBar = () => {
@@ -9,9 +11,17 @@ export const FilterBar = () => {
     const router = useRouter();
     
 
-    const handleClick = (e: React.MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) => {
-        setSelectedFilter((e.target as HTMLButtonElement).value);
-    }
+    const handleClickAll = () => {
+        setSelectedFilter('all');
+    };
+
+    const handleClickMoscow = () => {
+        setSelectedFilter('moscow');
+    };
+
+    const handleClickOthers = () => {
+        setSelectedFilter('from-moscow');
+    };
 
     useEffect(()=> {
         router.push(`?tours=${selectedFilter}`, { scroll: false} )
@@ -20,9 +30,23 @@ export const FilterBar = () => {
 
     return(
         <div className={styles.filter}>
-            <button value='all' onClick={(e) => handleClick(e)}>Ближайшие</button>
-            <button value='moscow' onClick={(e) => handleClick(e)}>По Москве</button>
-            <button value='from-moscow' onClick={(e) => handleClick(e)}>Из Москвы</button>
+            <Button
+            buttonType={ButtonType.Filter}
+            label='Ближайшие прогулки'
+            onClick={handleClickAll}
+             />
+             <Button
+            buttonType={ButtonType.Filter}
+            location={Location.Capital}
+            label='По Москве'
+            onClick={handleClickMoscow}
+             />
+             <Button
+            buttonType={ButtonType.Filter}
+            location={Location.Region}
+            label='Из Москвы'
+            onClick={handleClickOthers}
+             />
         </div>
     )
 }

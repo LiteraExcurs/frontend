@@ -18,6 +18,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   location?: Location;
   label: string;
   text?: string;
+  extraClass?: string;
   onClick?: () => void;
 }
 
@@ -26,6 +27,7 @@ export const Button = ({
   location,
   label,
   text,
+  extraClass,
   onClick,
   ...props
 }: ButtonProps) => {
@@ -68,7 +70,7 @@ export const Button = ({
     }
   }, [labelState, longLabel]);
 
-  const buttonStyles = composeButtonStyles(styles, buttonType, location);
+  const buttonStyles = composeButtonStyles(styles, buttonType, location, extraClass);
 
   return (
     <button
