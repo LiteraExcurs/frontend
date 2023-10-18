@@ -13,7 +13,7 @@ export const InputField = ({ type }: InputType) => {
         ? (<div className={styles.searchZone}>
           <input
           className={styles.inputSearch}
-          placeholder="Поиск">
+          placeholder='Поиск'>
           </input>
           <button className={styles.iconButton}><Image className={styles.icon} src={searchIcon} alt="Изображение лупы"/></button>
         </div>)
