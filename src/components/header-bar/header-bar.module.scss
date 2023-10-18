@@ -1,11 +1,16 @@
+@use '../../app/globals.scss';
+
 .container {
+    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
     gap: 80px;
 }
 
 .iconZone {
+    align-self: flex-end;
     max-width: 410px;
     display: flex;
     flex-direction: row;
@@ -34,4 +39,12 @@
         }
       }
     }
+}
+
+.cityName {
+  font-weight: 950;
+  font-size: 40px;
+  line-height: 53.32px;
+  letter-spacing: 0.02rem;
+  color: globals.$accent-color;
 }
