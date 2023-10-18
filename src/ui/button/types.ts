@@ -1,14 +1,12 @@
 export enum ButtonType {
   Filter = 'filter',
-  Card =  'card',
-  City = 'city',
+  Send = 'send',
   Subscribe = 'subscribe',
+  Card =  'card',
   Request = 'request',
 };
 
-export type ButtonColor =
-  | 'orangered'
-  | 'rainforest'
-  | 'slategray'
-  | 'pinegreen'
-  | 'brown';
+export enum Location {
+  Capital = 'capital',
+  Region = 'region',
+}

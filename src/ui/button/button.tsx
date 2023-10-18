@@ -8,24 +8,23 @@ import {
   type ButtonHTMLAttributes,
 } from 'react';
 
-import { ButtonColor, ButtonType } from './types';
+import { ButtonType, Location } from './types';
 import styles from './button.module.scss';
+import { composeButtonStyles } from './utils';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   buttonType: ButtonType;
+  location?: Location;
   label: string;
   text?: string;
-  backgroundColor?: ButtonColor;
-  signPic?: string;
   onClick?: () => void;
 }
 
 export const Button = ({
   buttonType,
+  location,
   label,
   text,
-  backgroundColor,
-  signPic,
   onClick,
   ...props
 }: ButtonProps) => {
@@ -34,6 +33,20 @@ export const Button = ({
 
   const [labelState, setLableState] = useState(label);
   const [longLabel, setLongLabel] = useState(false);
+  const [buttonSign, setButtonSign] = useState('');
+
+  useLayoutEffect(() => {
+    if (buttonType === ButtonType.Filter) {
+      if (location === Location.Capital) {
+        setButtonSign('/images/moscow-love.svg');
+      }
+      if (location === Location.Region) {
+        setButtonSign('/images/from-moscow.svg');
+      }
+    } else {
+      setButtonSign('');
+    }
+  }, [buttonType, location]);
 
   useLayoutEffect(() => {
     const cssBoxHeight = 16; // borders and paddings
@@ -48,33 +61,35 @@ export const Button = ({
       } else {
         if (longLabel) {
           setLableState((prev) => `${prev.slice(0, labelState.length - 2)}...`);
-          setLongLabel(prev => !prev);
+          setLongLabel((prev) => !prev);
         }
       }
     }
   }, [labelState, longLabel]);
 
+  const buttonStyles = composeButtonStyles(styles, buttonType, location);
+
   return (
     <button
       ref={buttonRef}
-      type={buttonType === ButtonType.Subscribe ? 'submit' : 'button'}
+      type={
+        buttonType === ButtonType.Subscribe || buttonType === ButtonType.Send
+          ? 'submit'
+          : 'button'
+      }
       onClick={onClick ? onClick : undefined}
-      className={`
-        ${styles.button}
-        ${styles[`button__type_${buttonType}`]}
-        ${
-          backgroundColor ? styles[`button__background_${backgroundColor}`] : ''
-        }
-      `}
+      className={buttonStyles}
       {...props}
     >
       <span ref={buttonLabelRef}>{labelState}</span>
+
       {text && text?.length > 0 ? (
         <span className={styles['button__text']}>{text}</span>
       ) : null}
-      {signPic && buttonType === 'filter' && (
+
+      {buttonSign.length > 0 && (
         <Image
-          src={signPic}
+          src={buttonSign}
           width={240}
           height={45}
           alt={label}

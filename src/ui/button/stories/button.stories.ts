@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Button } from '../button';
-import { ButtonType } from '../types';
+import { ButtonType, Location } from '../types';
 
 const meta = {
   title: 'UI/Button',
@@ -15,25 +15,42 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Filter: Story = {
+export const FilterButton: Story = {
   args: {
     buttonType: ButtonType.Filter,
-    label: 'По Москве',
+    label: 'Ближайшие прогулки',
   },
 };
 
-export const FilterWithSign: Story = {
+export const FilterButtonForMoscow: Story = {
   args: {
     buttonType: ButtonType.Filter,
     label: 'По Москве',
-    signPic: '/images/from-moscow.svg',
+    location: Location.Capital,
   },
 };
 
-export const Card: Story = {
+export const FilterButtonForRegions: Story = {
+  args: {
+    buttonType: ButtonType.Filter,
+    label: 'Из Москве',
+    location: Location.Region,
+  },
+};
+
+export const CardWithMoscowPlace: Story = {
   args: {
     buttonType: ButtonType.Card,
+    location: Location.Capital,
     label: 'Архитектура Варварки',
+  },
+};
+
+export const CardWithRegionPlace: Story = {
+  args: {
+    buttonType: ButtonType.Card,
+    location: Location.Region,
+    label: 'Калуга',
   },
 };
 
@@ -49,13 +66,7 @@ export const CardWithText: Story = {
     buttonType: ButtonType.Card,
     label: 'Пушкин в городе',
     text: 'Тверской бульвар и окрестности',
-  },
-};
-
-export const City: Story = {
-  args: {
-    buttonType: ButtonType.City,
-    label: 'Калуга',
+    location: Location.Capital,
   },
 };
 
@@ -66,18 +77,26 @@ export const Subscribe: Story = {
   },
 };
 
-export const RequestBrown: Story = {
+export const Send: Story = {
   args: {
-    buttonType: ButtonType.Request,
-    label: 'Оставить заявку',
+    buttonType: ButtonType.Send,
+    label: 'Отправить',
   },
 };
 
-export const RequestGreen: Story = {
+export const RequestForMoscow: Story = {
   args: {
     buttonType: ButtonType.Request,
     label: 'Оставить заявку',
-    backgroundColor: 'pinegreen',
+    location: Location.Capital,
+  },
+};
+
+export const RequestForRegions: Story = {
+  args: {
+    buttonType: ButtonType.Request,
+    label: 'Оставить заявку',
+    location: Location.Region,
   },
 };
 

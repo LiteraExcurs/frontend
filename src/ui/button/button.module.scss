@@ -5,7 +5,6 @@
   box-sizing: border-box;
   padding: 5px 10px;
   color: #e8e1d7;
-  background-color: #b5412a;
   font-size: 20px;
   line-height: 1.2;
   font-weight: 700;
@@ -15,55 +14,64 @@
 
   &:hover:not(:disabled) {
     cursor: pointer;
-    background-color: #993824;
   }
 
-  &:active:not(:disabled) { 
+  &:active:not(:disabled) {
     transform: scale(0.99);
   }
 
   &:disabled {
     background-color: gray;
-  }
 
-  &__text {
-    display: block;
-    margin-top: 5px;
-    font-size: 13px;
-    font-weight: 400;
-  }
-
-  &__type {
-    &_filter {
-      width: 185px;
-      box-shadow: 8px 4px 40px 0px rgba(0, 0, 0, 0.25);
+    &:hover {
+      background-color: gray;
     }
+  }
 
-    &_city {
-      background-color: #04403e;
-      font-size: 25px;
+  &_background {
+    &_default {
+      background-color: #b5412a;
 
       &:hover {
-        background-color: #033332;
+        background-color: #993824;
       }
     }
 
-    &_subscribe {
-      width: 232px;
-      height: 60px;
+    &_slategray {
       background-color: #6a898b;
-      box-shadow: 8px 4px 40px 0px rgba(0, 0, 0, 0.25);
 
       &:hover {
         background-color: #527274;
       }
     }
 
-    &_request {
-      width: 270px;
-      height: 81px;
+    &_orangered {
+      background-color: #913422;
+
+      &:hover {
+        background-color: #822411;
+      }
+    }
+
+    &_green {
+      background-color: #04403e;
+
+      &:hover {
+        background-color: #033332;
+      }
+    }
+
+    &_pinegreen {
+      background-color: #04403e;
+
+      &:hover {
+        background-color: #033332;
+        opacity: 0.85;
+      }
+    }
+
+    &_brown {
       background-color: #573225;
-      font-size: 25px;
 
       &:hover {
         background-color: #402217;
@@ -71,15 +79,35 @@
     }
   }
 
-  &__background {
-    &_pinegreen {
-      background-color: #033332;
-
-      &:hover {
-        background-color: #033332;
-        opacity: 0.85;
-      }
+  &_type {
+    &_filter {
+      width: 185px;
+      box-shadow: 8px 4px 40px 0px rgba(0, 0, 0, 0.25);
     }
+
+    &_send {
+      width: 186px;
+      height: 65px;
+    }
+
+    &_subscribe {
+      width: 232px;
+      height: 60px;
+      box-shadow: 8px 4px 40px 0px rgba(0, 0, 0, 0.25);
+    }
+
+    &_request {
+      width: 270px;
+      height: 81px;
+      font-size: 25px;
+    }
+  }
+
+  &__text {
+    display: block;
+    margin-top: 5px;
+    font-size: 13px;
+    font-weight: 400;
   }
 
   &__sign {
