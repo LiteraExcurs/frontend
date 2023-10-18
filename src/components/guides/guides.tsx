@@ -14,6 +14,7 @@ export const Guides = () => {
                         Государственного музея истории Российской 
                         литературы имени В.И. Даля. Хранитель</p>
                 </div>
+                {/* когда появятся картинки на беке, заменю img на <Image /> */}
                 <img className={styles.image} src='https://thumb.tildacdn.com/tild6538-6430-4236-a338-366632643934/-/resize/648x/-/format/webp/IMG_5460_1.jpg' alt="Фотография Дарьи Решетниковой"/>
             </article>
             <article className={styles.article}>

@@ -10,6 +10,7 @@ type CardProps = {
 export const Card = ({location, picture}:CardProps) => {
     return (
         <Link href='/' className={styles.card}>
+            {/* когда появятся картинки на беке, заменю img на <Image /> */}
             <img className={styles.image} src={picture} alt='обложка экскурсии'/>
             <button className={styles.button}>{location}</button>
         </Link>
