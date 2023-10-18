@@ -1,8 +1,8 @@
 "use client"
 
 import { useSearchParams } from 'next/navigation'
-import { Card } from '../card/card'
-import { FilterBar } from '../filter-bar/filter-bar'
+import { Card } from '../card/index'
+import { FilterBar } from '../filter-bar/index'
 import styles from './showcase.module.scss'
 
 export const MockData = [

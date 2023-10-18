@@ -3,7 +3,7 @@
 import Link from "next/link"
 import logo from '../../../public/images/LiteraEx_logo_color 2.svg'
 import Image from "next/image"
-import { HeaderBar } from "../header-bar/header-bar"
+import { HeaderBar } from "../header-bar/index"
 import styles from "./header.module.scss"
 import { usePathname } from "next/navigation"
 import { useEffect, useState } from "react"

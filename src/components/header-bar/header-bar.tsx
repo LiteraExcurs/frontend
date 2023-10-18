@@ -1,4 +1,4 @@
-import { InputField } from "@/ui/input-field/input-field"
+import { InputField } from "@/ui/input-field/index"
 import Image from "next/image"
 import Link from "next/link"
 import phoneIcon from '../../../public/images/8666632_phone_icon 1.svg'
