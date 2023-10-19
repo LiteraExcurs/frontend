@@ -6,6 +6,10 @@
     position: relative;
 }
 
+.card:hover {
+    transform: scale(1.01);
+}
+
 .image {
     object-fit: cover;
     height: 360.66px;
