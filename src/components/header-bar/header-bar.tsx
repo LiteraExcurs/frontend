@@ -7,20 +7,11 @@ import tgIcon from '../../../public/images/8134646_logo_telegram_icon 1.svg'
 import vkIcon from '../../../public/images/vk_fzvk76or0cbp_512 1.svg'
 import styles from './header-bar.module.scss'
 
-type HeaderBarType = {
-  type: 'default' | 'city';
-  id?: string;
-}
-
-export const HeaderBar = ({ type, id }:HeaderBarType) => {
-
-    const cityName = 'Город по ID';
+export const HeaderBar = () => {
 
     return (
         <div className={styles.container}>
-            {type === 'default' 
-            ? <InputField type='search' />
-            : <h2 className={styles.cityName}>{cityName.toUpperCase()}</h2>}
+            <InputField type='search' />
             <ul className={styles.iconZone}>
               <li><Link href='/'><Image src={phoneIcon} alt='Иконка телефона'/>
                 <p>Заказать звонок</p></Link></li>
