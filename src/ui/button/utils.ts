@@ -3,11 +3,13 @@ import { ButtonType, Location } from './types';
 export function composeButtonStyles(
   styles: Record<string, string>,
   buttonType: ButtonType,
-  location: Location | undefined
+  location: Location | undefined,
+  extraClass?: string,
 ): string {
   // common styles
   let buttonStyles = `
     ${styles.button}
+    ${extraClass}
     ${styles[`button_type_${buttonType}`]}
   `;
 

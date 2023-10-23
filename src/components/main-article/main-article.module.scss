@@ -1,0 +1,72 @@
+@use '../../app/globals.scss';
+
+%text-shared {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    padding-top: 60px;
+    min-height: 828px;
+    max-width: 1313px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 39px;
+}
+
+.title {
+    @extend %text-shared;
+    color: globals.$dark-base-color;
+    font-weight: 900;
+    font-size: 59px;
+    line-height: 78.66px;
+    opacity: 78%;
+    letter-spacing: 0.1rem;
+    position: relative;
+}
+.subTitle {
+    @extend %text-shared;
+    color: globals.$accent-color;
+    font-weight: 800;
+    font-size: 29.51px;
+    line-height: 34.61px;
+    letter-spacing: 0.2rem;
+}
+.summaryTitle {
+    @extend %text-shared;
+    color: globals.$pale-base-color;
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 37.54px;
+    letter-spacing: 0.5rem;
+}
+.spanText {
+    @extend %text-shared;
+    color: globals.$pale-base-color;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 42.66px;
+    position: absolute;
+    top: 30px;
+    left: -130px;
+}
+
+.articleText {
+    @extend %text-shared;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 31.99px;
+    margin-bottom: 8px;
+}
+
+.invitationText {
+    @extend %text-shared;
+    color: globals.$medium-base-color;
+    font-weight: 800;
+    font-size: 30px;
+    line-height: 39.99px;
+    letter-spacing: -0.1rem;
+    margin-bottom: 151px;
+}

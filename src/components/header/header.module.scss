@@ -1,0 +1,44 @@
+@use '../../app/globals.scss';
+
+.header {
+    padding: 25px 60px;
+    display: flex;
+    gap: 92px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.infoContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    width: 100%;
+}
+
+.navBar {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    list-style: none;
+    color: globals.$black-color;
+    margin: 0;
+    padding: 0;
+}
+
+.navLink {
+    color: inherit;
+    text-decoration: none;
+    font-size: 20px;
+    line-height: 26.66px;
+}
+
+.navLink:hover {
+    opacity: 0.7;
+}
+
+.icon {
+    object-fit: cover;
+    width: 157px;
+    height: 157px;
+}

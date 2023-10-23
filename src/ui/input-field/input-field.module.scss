@@ -1,0 +1,68 @@
+@use '../../app/globals.scss';
+
+.searchZone {
+    position: relative;
+}
+
+.inputSearch {
+    box-sizing: border-box;
+    background-color: globals.$primary-color;
+    width: 537px;
+    height: 40px;
+    border: 0.5px solid globals.$black-color;
+    padding-left: 22px;
+    font-size: 14px;
+}
+.inputSearch:focus {
+    outline: solid globals.$black-color;
+}
+
+.iconButton {
+    padding: 0;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: 10px;
+    top: 10px;
+    background: none;
+    border: none;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+}
+
+.icon:hover {
+    opacity: 0.6;
+}
+
+.iconButton:hover {
+    cursor: pointer;
+}
+
+.inputSubs {
+    background-color: transparent;
+    border: 2px solid globals.$primary-color;
+    border-radius: 29px;
+    width: 232px;
+    height: 60px;
+    box-sizing: border-box;
+    padding: 19px 35px;
+    color: globals.$primary-color;
+}
+
+.inputSubs:focus {
+    outline: solid globals.$white-color;
+    border: none;
+}
+
+.inputSubs::placeholder {
+    color: globals.$primary-color;
+    opacity: 50%;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21.33px;
+    text-align: center;
+    text-decoration: underline;
+}
