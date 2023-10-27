@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'TildaSans';
+  src: url(/fonts/TildaSans-VF.woff2);
+}
+
 $primary-color: #E8E1D7;
 $secondary-color: #6A898B;
 $accent-color: #B5412A;
@@ -33,6 +38,7 @@ $semi-accent-base-color: #913422;
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-family: 'TildaSans', sans-serif;
 }
 
 .main {
