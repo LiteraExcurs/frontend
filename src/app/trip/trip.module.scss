@@ -1,0 +1,86 @@
+.trip {
+  background-color: #04403e;
+  padding: 40px 71px 60px;
+  box-sizing: border-box;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  &__section {
+    display: flex;
+    justify-content: space-between;
+    gap: 95px;
+  }
+
+  &__pic {
+    flex-shrink: 0;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+  }
+
+  &__desc {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  &__subtitle {
+    display: block;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 1.35px;
+    color: #6a898b;
+  }
+
+  &__delay {
+    display: block;
+    font-size: 18px;
+    font-weight: 400;
+    color: #ede3d7;
+  }
+
+  &__title {
+    font-size: 40px;
+    font-weight: 900;
+    line-height: 1.2;
+    text-transform: uppercase;
+    color: #ede3d7;
+    margin: 5px 0 0;
+    padding: 0;
+  }
+
+  &__text {
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #ede3d7;
+  }
+
+  &__comment {
+    display: block;
+    font-size: 15px;
+    line-height: 1.2;
+    font-weight: 500;
+    color: #6a898b;
+  }
+
+  &__request {
+    display: flex;
+    gap: 25px;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+  }
+
+  &__button {
+    flex-shrink: 0;
+  }
+}
