@@ -9,7 +9,10 @@ $medium-base-color: #77584C;
 $pale-base-color: #8A7C62;
 $semi-accent-base-color: #913422;
 
-
+@font-face {
+  font-family: 'Golos';
+  src: url('/assets/fonts/golos-text_vf.woff2');
+}
 
 // * {
 //   box-sizing: border-box;
@@ -33,6 +36,7 @@ $semi-accent-base-color: #913422;
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-family: 'Golos', sans-serif;
 }
 
 .main {
