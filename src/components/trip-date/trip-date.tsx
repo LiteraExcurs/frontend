@@ -1,21 +1,17 @@
 import styles from './trip-date.module.scss';
+import {Location} from '@/utils/types';
 
 type TripDateProps = {
-  day?: number;
-  month?: number;
-  year?: number;
+  location: Location;
+  date?: string;
 }
 
-export const TripDate = ({
-  day,
-  month,
-  year,
-}: TripDateProps) => {
+export const TripDate = ({ location, date }: TripDateProps) => {
+  const tripDateLocationClass = location === Location.Region ? 'date_location_region' : 'date_location_capital';
+
   return (
-    <button className={styles.button}>
-      {day ? day : '--'}.
-      {month ? month : '--'}.
-      {year ? year : '--'}
+    <button className={`${styles['date']} ${styles[tripDateLocationClass]}`}>
+      {date ? `${date}` : `--.--.${new Date().getFullYear()}`}
     </button>
   );
 };

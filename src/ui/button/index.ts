@@ -1,2 +1,2 @@
 export { Button } from './button';
-export { ButtonType, Location } from './types';
+export { ButtonType } from './types';

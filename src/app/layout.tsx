@@ -1,14 +1,13 @@
-import { Header } from '@/components/header/index'
-import './globals.scss'
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import { Footer } from '@/components/footer/index'
+import type { Metadata } from 'next';
 
-const inter = Inter({ subsets: ['latin'] })
+import { Header } from '@/components/header';
+import { Footer } from '@/components/footer';
+
+import './globals.scss';
 
 export const metadata: Metadata = {
-  title: 'Литературная Москва',
-  description: 'Литературная Москва',
+  title: 'Литературная Москва - клуб любителей литературы и путешествий',
+  description: 'Проект «Литературная Москва». Клуб любителей литературы и путешествий. Авторские литературные экскурсии',
 }
 
 export default function RootLayout({
@@ -18,13 +17,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ru">
-      <body className={`${inter.className} body`}>
-      <Header />
+      <body className='body'>
+        <Header />
         <main className='main'>
           {children}
         </main>
         <Footer />
-        </body>
+      </body>
     </html>
-  )
-}
+  );
+};

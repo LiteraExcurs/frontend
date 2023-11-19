@@ -1,0 +1,21 @@
+@use '../../app/globals.scss';
+
+.request {
+  display: flex;
+  gap: 25px;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+
+  &__button {
+    flex-shrink: 0;
+  }
+
+  &__comment {
+    display: block;
+    font-size: 15px;
+    line-height: 1.4;
+    font-weight: 400;
+    color: globals.$primary-color;
+  }
+}

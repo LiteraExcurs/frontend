@@ -4,9 +4,4 @@ export enum ButtonType {
   Subscribe = 'subscribe',
   Card =  'card',
   Request = 'request',
-};
-
-export enum Location {
-  Capital = 'capital',
-  Region = 'region',
 }

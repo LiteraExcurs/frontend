@@ -8,7 +8,8 @@ import {
   type ButtonHTMLAttributes,
 } from 'react';
 
-import { ButtonType, Location } from './types';
+import { ButtonType } from './types';
+import { Location } from "@/utils/types";
 import { composeButtonStyles } from './utils';
 
 import styles from './button.module.scss';

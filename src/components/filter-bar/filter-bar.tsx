@@ -3,7 +3,8 @@ import { useEffect, useState } from 'react';
 import styles from './filter-bar.module.scss'
 import { useRouter } from 'next/navigation';
 import { Button } from '@/ui/button';
-import { ButtonType, Location } from '@/ui/button/types';
+import { ButtonType } from '@/ui/button/types';
+import { Location } from "@/utils/types";
 
 
 export const FilterBar = () => {

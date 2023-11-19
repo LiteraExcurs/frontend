@@ -1,1 +1,3 @@
-export { TripDate } from './trip-date';
+import { TripDate } from './trip-date';
+
+export { TripDate };

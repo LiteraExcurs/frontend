@@ -1,16 +1,20 @@
+@use '../../app/globals.scss';
+
 .button {
   position: relative;
   width: 220px;
   height: 75px;
   box-sizing: border-box;
   padding: 5px 10px;
-  color: #e8e1d7;
+  color: globals.$primary-color;
   font-size: 20px;
   line-height: 1.2;
   font-weight: 700;
-  border: 3px solid #e8e1d7;
+  border: 3px solid globals.$primary-color;
   border-radius: 29px;
-  transition: background-color 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  transition:
+          background-color 0.3s ease-in-out,
+          opacity 0.3s ease-in-out;
 
   &:hover:not(:disabled) {
     cursor: pointer;
@@ -21,16 +25,16 @@
   }
 
   &:disabled {
-    background-color: gray;
+    background-color: globals.$gray-color;
 
     &:hover {
-      background-color: gray;
+      background-color: globals.$gray-color;
     }
   }
 
   &_background {
     &_default {
-      background-color: #b5412a;
+      background-color: globals.$accent-color;
 
       &:hover {
         background-color: #993824;
@@ -38,7 +42,7 @@
     }
 
     &_slategray {
-      background-color: #6a898b;
+      background-color: globals.$secondary-color;
 
       &:hover {
         background-color: #527274;
@@ -46,7 +50,7 @@
     }
 
     &_orangered {
-      background-color: #913422;
+      background-color: globals.$semi-accent-base-color;
 
       &:hover {
         background-color: #822411;
@@ -54,7 +58,7 @@
     }
 
     &_green {
-      background-color: #04403e;
+      background-color: globals.$secondary-accent-color;
 
       &:hover {
         background-color: #033332;
@@ -62,16 +66,15 @@
     }
 
     &_pinegreen {
-      background-color: #04403e;
+      background-color: #033332;
 
       &:hover {
-        background-color: #033332;
-        opacity: 0.85;
+        background-color: #044140;
       }
     }
 
     &_brown {
-      background-color: #573225;
+      background-color: globals.$dark-base-color;
 
       &:hover {
         background-color: #402217;
@@ -82,7 +85,7 @@
   &_type {
     &_filter {
       width: 185px;
-      box-shadow: 8px 4px 40px 0px rgba(0, 0, 0, 0.25);
+      box-shadow: 8px 4px 40px 0 rgba(0, 0, 0, 0.25);
     }
 
     &_send {
@@ -93,7 +96,7 @@
     &_subscribe {
       width: 232px;
       height: 60px;
-      box-shadow: 8px 4px 40px 0px rgba(0, 0, 0, 0.25);
+      box-shadow: 8px 4px 40px 0 rgba(0, 0, 0, 0.25);
     }
 
     &_request {

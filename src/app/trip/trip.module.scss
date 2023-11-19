@@ -1,7 +1,25 @@
+@use '../../app/globals.scss';
+
 .trip {
-  background-color: #04403e;
-  padding: 40px 71px 60px;
+  padding: 40px 0 60px;
   box-sizing: border-box;
+  width: 100%;
+
+  &_location {
+    &_capital {
+      background-color: globals.$medium-base-color;
+    }
+
+    &_region {
+      background-color: globals.$secondary-accent-color;
+    }
+  }
+
+  &__container {
+    max-width: 1313px;
+    margin: 0 auto;
+    padding: 0 60px;
+  }
 
   &__content {
     display: flex;
@@ -35,16 +53,25 @@
   &__subtitle {
     display: block;
     font-size: 30px;
-    font-weight: 700;
+    font-weight: 600;
     letter-spacing: 1.35px;
-    color: #6a898b;
+
+    &_location {
+      &_capital {
+        color: globals.$dark-base-color;
+      }
+
+      &_region {
+        color: globals.$secondary-color;
+      }
+    }
   }
 
   &__delay {
     display: block;
     font-size: 18px;
     font-weight: 400;
-    color: #ede3d7;
+    color: globals.$primary-color;
   }
 
   &__title {
@@ -52,35 +79,67 @@
     font-weight: 900;
     line-height: 1.2;
     text-transform: uppercase;
-    color: #ede3d7;
-    margin: 5px 0 0;
+    color: globals.$primary-color;
+    margin: 0 0 28px;
     padding: 0;
+    letter-spacing: 3px;
   }
 
   &__text {
     font-size: 22px;
     font-weight: 400;
     line-height: 1.5;
-    color: #ede3d7;
+    color: globals.$primary-color;
+    padding: 0;
+    margin: 0 0 32px;
   }
 
   &__comment {
     display: block;
     font-size: 15px;
-    line-height: 1.2;
-    font-weight: 500;
-    color: #6a898b;
+    line-height: 1.4;
+    font-weight: 400;
+    color: globals.$primary-color;
+  }
+}
+
+.price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  &__value {
+    padding: 14px 42px;
+    border-radius: 29px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: 400;
+
+    &_location {
+      &_capital {
+        color: globals.$not-true-black-color;
+        background:
+                linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%),
+                globals.$primary-color;
+      }
+
+      &_region {
+        color: globals.$secondary-color;
+        background:
+                linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.50) 100%),
+                globals.$secondary-color;
+      }
+    }
   }
 
-  &__request {
-    display: flex;
-    gap: 25px;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: auto;
+  &__currency {
+    font-size: 18px;
+    font-weight: 300;
   }
 
-  &__button {
-    flex-shrink: 0;
+  &__persons {
+    font-size: 14px;
+    font-weight: 400;
+    color: globals.$primary-color;
   }
 }
