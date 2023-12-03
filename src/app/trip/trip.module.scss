@@ -4,6 +4,7 @@
   padding: 40px 0 60px;
   box-sizing: border-box;
   width: 100%;
+  min-height: calc(100vh - 512px);
 
   &_location {
     &_capital {
@@ -35,6 +36,8 @@
 
   &__pic {
     flex-shrink: 0;
+    object-fit: contain;
+    border-radius: 40px;
   }
 
   &__header {
@@ -42,6 +45,7 @@
     justify-content: space-between;
     align-items: flex-start;
     gap: 30px;
+    margin-bottom: 40px;
   }
 
   &__desc {
@@ -52,17 +56,20 @@
 
   &__subtitle {
     display: block;
-    font-size: 30px;
-    font-weight: 600;
-    letter-spacing: 1.35px;
 
     &_location {
       &_capital {
         color: globals.$dark-base-color;
+        font-size: 32px;
+        font-weight: 900;
+        letter-spacing: 2.4px;
       }
 
       &_region {
-        color: globals.$secondary-color;
+        color: globals.$sub-primary-color;
+        font-size: 22px;
+        font-weight: 700;
+        opacity: 0.5;
       }
     }
   }
@@ -80,26 +87,37 @@
     line-height: 1.2;
     text-transform: uppercase;
     color: globals.$primary-color;
-    margin: 0 0 28px;
+    margin: 0 0 20px;
     padding: 0;
     letter-spacing: 3px;
   }
 
   &__text {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 400;
-    line-height: 1.5;
-    color: globals.$primary-color;
+    line-height: 1.2;
+    color: globals.$sub-primary-color;
     padding: 0;
-    margin: 0 0 32px;
+    margin: 0;
+    text-align: justify;
+    min-height: 245px;
   }
 
   &__comment {
     display: block;
     font-size: 15px;
-    line-height: 1.4;
     font-weight: 400;
-    color: globals.$primary-color;
+
+    &_location {
+      &_capital {
+        color: globals.$primary-color;
+        opacity: 0.5;
+      }
+
+      &_region {
+        color: globals.$secondary-color;
+      }
+    }
   }
 }
 
@@ -117,24 +135,21 @@
 
     &_location {
       &_capital {
-        color: globals.$not-true-black-color;
-        background:
-                linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%),
-                globals.$primary-color;
+        color: #988358;
+        background: linear-gradient(0deg, rgba(87, 50, 37, 0.75) 0%, rgba(87, 50, 37, 0.75) 100%), #988358;
       }
 
       &_region {
         color: globals.$secondary-color;
-        background:
-                linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.50) 100%),
-                globals.$secondary-color;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.50) 100%),
+        globals.$secondary-color;
       }
     }
   }
 
   &__currency {
-    font-size: 18px;
-    font-weight: 300;
+    font-size: 20px;
+    font-weight: 400;
   }
 
   &__persons {

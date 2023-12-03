@@ -14,8 +14,17 @@
   &__comment {
     display: block;
     font-size: 15px;
-    line-height: 1.4;
     font-weight: 400;
-    color: globals.$primary-color;
+
+    &_location {
+      &_capital {
+        color: globals.$sub-primary-color;
+        opacity: 0.5;
+      }
+
+      &_region {
+        color: globals.$secondary-color;
+      }
+    }
   }
 }

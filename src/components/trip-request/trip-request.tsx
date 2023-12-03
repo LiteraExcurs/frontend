@@ -1,15 +1,21 @@
-'use client'
+'use client';
 
-import { Button, ButtonType } from "@/ui/button";
-import { Location } from "@/utils/types";
+import { Button, ButtonType } from '@/ui/button';
+import { Location } from '@/utils/types';
 
-import styles from "./trip-request.module.scss";
+import styles from './trip-request.module.scss';
 
 type TripRequestProps = {
   location: Location;
-}
+  groups: boolean;
+};
 
-export const TripRequest = ({ location }: TripRequestProps) => {
+export const TripRequest = ({ location, groups }: TripRequestProps) => {
+  const commentLocationClass =
+    location === Location.Region
+      ? 'request__comment_location_region'
+      : 'request__comment_location_capital';
+
   return (
     <div className={styles['request']}>
       <Button
@@ -19,9 +25,14 @@ export const TripRequest = ({ location }: TripRequestProps) => {
         onClick={() => {}}
         extraClass={styles['request__button']}
       />
-      <span className={styles['request__comment']}>
-        Желающих присоединиться просим оставить заявку - вышлем детали поездки и обсудим путешествие.
-      </span>
+      {groups && (
+        <span
+          className={`${styles['request__comment']} ${styles[commentLocationClass]}`}
+        >
+          Также можно заказать мероприятие на предложенную вами дату для группы
+          от 5 до 15 человек.
+        </span>
+      )}
     </div>
   );
 };
