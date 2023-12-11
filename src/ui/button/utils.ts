@@ -1,4 +1,5 @@
-import { ButtonType, Location } from './types';
+import { ButtonType } from './types';
+import { Location } from '@/utils/types';
 
 export function composeButtonStyles(
   styles: Record<string, string>,

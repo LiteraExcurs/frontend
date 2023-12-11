@@ -1,9 +1,12 @@
 $primary-color: #E8E1D7;
+$sub-primary-color: #EDE3D7;
 $secondary-color: #6A898B;
 $accent-color: #B5412A;
 $secondary-accent-color: #04403E;
 $black-color: #000000;
+$not-true-black-color: #050505;
 $white-color: #FFFFFF;
+$gray-color: #808080;
 $dark-base-color: #573225;
 $medium-base-color: #77584C;
 $pale-base-color: #8A7C62;
@@ -14,20 +17,7 @@ $semi-accent-base-color: #913422;
   src: url('/assets/fonts/golos-text_vf.woff2');
 }
 
-// * {
-//   box-sizing: border-box;
-//   padding: 0;
-//   margin: 0;
-// }
-
-// html,
-// body {
-//   max-width: 100vw;
-//   overflow-x: hidden;
-// }
-
 .body {
-  color: rgb(var(--foreground-rgb));
   display: flex;
   flex-direction: column;
   position: relative;
@@ -50,5 +40,3 @@ $semi-accent-base-color: #913422;
 .footer {
   flex: 0;
 }
-
-
