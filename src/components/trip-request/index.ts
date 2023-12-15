@@ -1,3 +1,4 @@
-import { TripRequest} from "./trip-request";
+import { TripRequest } from './trip-request';
+import type { RequestData } from './types';
 
-export { TripRequest };
+export { TripRequest, RequestData };

@@ -1,17 +1,26 @@
+import { useState, useRef, FormEvent, ChangeEvent } from 'react';
 import { InputField } from '@/ui/input-field';
-import {ChangeEvent, useState} from 'react';
+import { Button, ButtonType } from '@/ui/button';
+import type { RequestData } from '@/components/trip-request';
 
-export const RequestForm = () => {
-  const [data, setData] = useState({
+import styles from './request-form.module.scss';
+
+type RequestFormProps = {
+  onSubmit: (data: RequestData) => void;
+};
+
+export const RequestForm = ({ onSubmit }: RequestFormProps) => {
+  const [data, setData] = useState<RequestData>({
     name: '',
     phone: '',
     email: '',
     visitors: '',
     date: '',
   });
+  const formRef = useRef<HTMLFormElement | null>(null);
 
-  const handleChange = (evt: any) => {
-    if(evt?.target) {
+  const handleChange = (evt: ChangeEvent<HTMLInputElement>) => {
+    if (evt?.target) {
       const { name, value } = evt.target;
 
       setData((prev) => ({
@@ -19,11 +28,15 @@ export const RequestForm = () => {
         [name]: value,
       }));
     }
+  };
 
+  const handleSubmit = (evt: FormEvent) => {
+    evt.preventDefault();
+    onSubmit(data);
   };
 
   return (
-    <form>
+    <form ref={formRef} onSubmit={handleSubmit}>
       <InputField
         name="name"
         value={data.name}
@@ -43,16 +56,21 @@ export const RequestForm = () => {
         onChange={handleChange}
       />
       <InputField
-        name="email"
+        name="visitors"
         value={data.visitors}
         placeholder="Количество посетителей"
         onChange={handleChange}
       />
       <InputField
-        name="email"
+        name="date"
         value={data.date}
         placeholder="Дата экскурсии"
         onChange={handleChange}
+      />
+      <Button
+        buttonType={ButtonType.Send}
+        label="Отправить"
+        extraClass={styles.button}
       />
     </form>
   );

@@ -3,10 +3,11 @@
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Modal } from '../modal';
 import { Button, ButtonType } from '@/ui/button';
+import { RequestForm } from '@/components/request-form';
 import { Location } from '@/utils/types';
+import { RequestData } from './types';
 
 import styles from './trip-request.module.scss';
-import {RequestForm} from "@/components/request-form";
 
 type TripRequestProps = {
   location: Location;
@@ -23,14 +24,20 @@ export const TripRequest = ({ location, groups }: TripRequestProps) => {
       ? 'request__comment_location_region'
       : 'request__comment_location_capital';
 
+  const closeRequestModal = () => {
+    router.push('/trip', { scroll: false });
+  };
+
+  const sendRequest = (data: RequestData) => {
+    console.log(data);
+    closeRequestModal();
+  };
+
   return (
     <>
       {showRequestModal && (
-        <Modal
-          title="Оставить заявку"
-          closeFn={() => router.push('/trip', { scroll: false })}
-        >
-          <RequestForm />
+        <Modal title="Оставить заявку" closeFn={closeRequestModal}>
+          <RequestForm onSubmit={sendRequest} />
         </Modal>
       )}
 
