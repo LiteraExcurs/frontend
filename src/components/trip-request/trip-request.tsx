@@ -12,9 +12,10 @@ import styles from './trip-request.module.scss';
 type TripRequestProps = {
   location: Location;
   groups: boolean;
+  availableDates: Array<string>;
 };
 
-export const TripRequest = ({ location, groups }: TripRequestProps) => {
+export const TripRequest = ({ location, groups, availableDates }: TripRequestProps) => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const showRequestModal = searchParams.has('request');
@@ -37,7 +38,7 @@ export const TripRequest = ({ location, groups }: TripRequestProps) => {
     <>
       {showRequestModal && (
         <Modal title="Оставить заявку" closeFn={closeRequestModal}>
-          <RequestForm onSubmit={sendRequest} />
+          <RequestForm onSubmit={sendRequest} availableDates={availableDates} />
         </Modal>
       )}
 
