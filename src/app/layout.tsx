@@ -18,6 +18,7 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <body className='body'>
+        <div id="modals"></div>
         <Header />
         <main className='main'>
           {children}

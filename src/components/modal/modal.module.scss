@@ -1,0 +1,40 @@
+@use '../../app/globals.scss';
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.container {
+  position: relative;
+  width: 600px;
+  height: 650px;
+  background-color: globals.$sub-primary-color;
+  border-radius: 29px;
+  padding: 20px 30px;
+  box-sizing: border-box;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border: none;
+  background-image: url('/images/close.svg');
+  cursor: pointer;
+}
+
+.headline {
+  margin: 0 0 25px;
+  color: #6A898B;
+}
