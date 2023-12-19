@@ -4,6 +4,7 @@ import { useSearchParams } from 'next/navigation'
 import { Card } from '../card/index'
 import { FilterBar } from '../filter-bar/index'
 import styles from './showcase.module.scss'
+import { useGetActivitiesByFilterQuery } from '@/services/api'
 
 export const MockData = [
     {
@@ -52,8 +53,8 @@ export const MockData = [
 export const Showcase = () => {
     const searchParams = useSearchParams();
     const selectedFilter = searchParams.get('tours');
-    // console.log(selectedFilter); 
-    // с помощью selectedFilter собираюсь делать запрос на бек за списком карточек
+    const { data: activities } = useGetActivitiesByFilterQuery(selectedFilter);
+    console.log(activities); 
 
     return (
         <section>
@@ -61,14 +62,14 @@ export const Showcase = () => {
             <div className={styles.container}>
                 <FilterBar/>
                 <ul className={styles.cardsZone} >
-                    {MockData.map((eventCard) => {
+                    {activities?.map((eventCard) => {
                         return( 
-                            <li key={MockData.indexOf(eventCard)}>
+                            <li key={eventCard.id}>
                                 <Card 
                                 name={eventCard.name}
                                 location={eventCard.location}
-                                picture={eventCard.picture}
-                                extraName={eventCard.extraName} />
+                                picture={eventCard.image}
+                                extraName={eventCard.subtitle} />
                             </li>
                         )
                     })}

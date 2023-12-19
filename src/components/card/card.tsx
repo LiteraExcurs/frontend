@@ -15,13 +15,12 @@ type CardProps = {
 export const Card = ({location, picture, name, extraName }:CardProps) => {
     return (
         <Link href='/' className={styles.card}>
-            {/* когда появятся картинки на беке, заменю img на <Image /> */}
             <img className={styles.image} src={picture} alt='обложка экскурсии'/>
             <Button 
             buttonType={ButtonType.Card}
             label={name}
-            text={extraName}
-            location={location === 'Moscow' ? Location.Capital : Location.Region}
+            text={extraName ?? ''}
+            location={location === 'capital' ? Location.Capital : Location.Region}
             extraClass={styles.button}/>
         </Link>
     )
