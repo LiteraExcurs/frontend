@@ -12,8 +12,11 @@ export const appApi = createApi({
         }),
         getActivitiesByFilter: build.query({
             query: (params) => params ? `/activity?tours=${params}` : `/activity`
+        }),
+        getTrip: build.query({
+            query: (slug) => `activity/trip/${slug}`
         })
     })
 })
 
-export const {useGetAllActivitiesQuery, useGetActivitiesByFilterQuery} = appApi;
+export const {useGetAllActivitiesQuery, useGetActivitiesByFilterQuery, useGetTripQuery} = appApi;

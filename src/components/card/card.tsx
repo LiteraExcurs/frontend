@@ -10,11 +10,12 @@ type CardProps = {
     picture: string,
     name: string,
     extraName?: string,
+    slug: string
 }
 
-export const Card = ({location, picture, name, extraName }:CardProps) => {
+export const Card = ({location, picture, name, extraName, slug }:CardProps) => {
     return (
-        <Link href='/' className={styles.card}>
+        <Link href={`/trip/${slug}`} className={styles.card}>
             <img className={styles.image} src={picture} alt='обложка экскурсии'/>
             <Button 
             buttonType={ButtonType.Card}

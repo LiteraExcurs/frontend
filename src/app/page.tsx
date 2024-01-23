@@ -7,11 +7,12 @@ import { store } from '@/services/store';
 
 export default function Home() {
   return (
-    <><Provider store={store}>
+    <>
+    {/* <Provider store={store}> */}
         <MainArticle />
         <Showcase />
         <Guides />
-      </Provider>
+      {/* </Provider> */}
     </>
   );
 };

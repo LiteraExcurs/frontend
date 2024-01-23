@@ -69,7 +69,8 @@ export const Showcase = () => {
                                 name={eventCard.name}
                                 location={eventCard.location}
                                 picture={eventCard.image}
-                                extraName={eventCard.subtitle} />
+                                extraName={eventCard.subtitle} 
+                                slug={eventCard.slug}/>
                             </li>
                         )
                     })}

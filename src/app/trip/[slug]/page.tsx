@@ -1,3 +1,4 @@
+'use client'
 import Image from 'next/image';
 
 import { Breadcrumbs } from '@/components/breadcrumps';
@@ -6,6 +7,9 @@ import { TripRequest } from '@/components/trip-request';
 import { Location } from '@/utils/types';
 
 import styles from './trip.module.scss';
+import { usePathname } from 'next/navigation';
+import { useGetTripQuery } from '@/services/api';
+import { skipToken } from '@reduxjs/toolkit/query';
 
 type TripPageProps = {
   location: Location;
@@ -29,62 +33,81 @@ const mockData: TripPageProps = {
   price: 3500,
 };
 
-export default function TripPage() {
-  const { location, title, subtitle, date, text, pic, groups, price } =
-    mockData;
+// {
+//   "id": 2,
+//   "createdAt": "2023-12-15T12:53:21.373Z",
+//   "updatedAt": "2023-12-15T12:53:21.373Z",
+//   "name": "Булгаковский дом",
+//   "subtitle": "Музей-театр \"Дом Булгакова\"",
+//   "season": "winter",
+//   "type": "excursion",
+//   "location": "capital",
+//   "description": "Описание экскурсии. Пусть в этот раз оно будет чуть длиннее одного слова, чтобы можно было посмотреть на длинное описание и как оно выглядит в общей таблице, а также на странице редактирования активности.",
+//   "slug": "dom-bulgakova",
+//   "image": "https://kudamoscow.ru/uploads/7d43773e67a1c60fb31d5c9678ec6522.jpg",
+//   "isActive": true,
+//   "isDeleted": false
+// }
+
+export default function TripPage({ params }) {
+  const pathname = usePathname();
+  console.log(params.slug)
+  const { data: tripData, isLoading, isSuccess } = useGetTripQuery(params.slug);
 
   const tripLocationClass =
-    location === Location.Region
+    tripData?.location === Location.Region
       ? 'trip_location_region'
       : 'trip_location_capital';
   const subtitleLocationClass =
-    location === Location.Region
+    tripData?.location === Location.Region
       ? 'trip__subtitle_location_region'
       : 'trip__subtitle_location_capital';
   const commentLocationClass =
-    location === Location.Region
+    tripData?.location === Location.Region
       ? 'trip__comment_location_region'
       : 'trip__comment_location_capital';
   const priceLocationClass =
-    location === Location.Region
+    tripData?.location === Location.Region
       ? 'price__value_location_region'
       : 'price__value_location_capital';
 
   return (
     <section className={`${styles['trip']} ${styles[tripLocationClass]}`}>
+      {isSuccess &&
       <div className={styles['trip__container']}>
         <Breadcrumbs />
         <div className={styles['trip__section']}>
-          <Image
+          {/* <Image
             className={styles['trip__pic']}
-            src={pic}
-            alt={title}
+            src={tripData.image}
+            alt={tripData.name}
             width={420}
             height={625}
-          />
+          /> */}
+          <img className={styles['trip__pic']} src={tripData.image} alt={tripData.name}/>
           <div className={styles['trip__content']}>
             <div className={styles['trip__header']}>
               <div className={styles['trip__desc']}>
-                {title.length > 0 && (
-                  <h1 className={styles['trip__title']}>{title}</h1>
+                {tripData.name.length > 0 && (
+                  <h1 className={styles['trip__title']}>{tripData.name}</h1>
                 )}
-                {subtitle.length > 0 && (
+                {tripData.subtitle.length > 0 && (
                   <span
                     className={`${styles['trip__subtitle']} ${styles[subtitleLocationClass]}`}
                   >
-                    {subtitle}
+                    {tripData.subtitle}
                   </span>
                 )}
               </div>
-              <TripDate location={location} date={date ? date : undefined} />
+              <TripDate location={tripData.location} date={tripData.date ? tripData.date : undefined} />
             </div>
-            <p className={styles['trip__text']}>{text}</p>
-            {price && price > 0 && (
+            <p className={styles['trip__text']}>{tripData.description}</p>
+            {tripData.price && tripData.price > 0 && (
               <div className={styles['price']}>
                 <span
                   className={`${styles['price__value']} ${styles[priceLocationClass]}`}
                 >
-                  {price} <span className={styles['price__currency']}>₽</span>
+                  {tripData.price} <span className={styles['price__currency']}>₽</span>
                 </span>
                 <span className={styles['price__persons']}>
                   Стоимость для 1 чел.
@@ -97,10 +120,10 @@ export default function TripPage() {
                 </p>
               </div>
             )}
-            <TripRequest location={location} groups={groups} />
+            <TripRequest location={tripData.location} groups={true} />
           </div>
         </div>
-      </div>
+      </div>}
     </section>
   );
 }
