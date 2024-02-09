@@ -13,9 +13,10 @@ type TripPageProps = {
   subtitle: string;
   date: string | null;
   text: string;
-  pic: string;
+  image: string;
   groups: boolean;
   price: number;
+  availableDates: Array<string>;
 };
 
 const mockData: TripPageProps = {
@@ -24,14 +25,24 @@ const mockData: TripPageProps = {
   subtitle: 'Двухдневное путешествие для небольшой компании',
   date: null,
   text: `Узнаем об историческом прошлом города и о его знаменитых уроженцах. Прогуляемся по самому маленькому Кремлю России. Посетим дом-музей удивительного скульптора А.С. Голубкиной. Прогуляемся к «родовому гнезду» Фёдора Михайловича Достоевского и, если позволит погода, устроим пикник.`,
-  pic: '/images/trip.png',
+  image: '/images/trip.png',
   groups: true,
   price: 3500,
+  availableDates: ['01-01-2024', '05-01-2024', '10-02-2024'],
 };
 
 export default function TripPage() {
-  const { location, title, subtitle, date, text, pic, groups, price } =
-    mockData;
+  const {
+    location,
+    title,
+    subtitle,
+    date,
+    text,
+    image,
+    groups,
+    price,
+    availableDates,
+  } = mockData;
 
   const tripLocationClass =
     location === Location.Region
@@ -57,7 +68,7 @@ export default function TripPage() {
         <div className={styles['trip__section']}>
           <Image
             className={styles['trip__pic']}
-            src={pic}
+            src={image}
             alt={title}
             width={420}
             height={625}
@@ -97,7 +108,11 @@ export default function TripPage() {
                 </p>
               </div>
             )}
-            <TripRequest location={location} groups={groups} />
+            <TripRequest
+              location={location}
+              groups={groups}
+              availableDates={availableDates}
+            />
           </div>
         </div>
       </div>
