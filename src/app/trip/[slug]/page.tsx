@@ -10,6 +10,7 @@ import styles from './trip.module.scss';
 import { usePathname } from 'next/navigation';
 import { useGetTripQuery } from '@/services/api';
 import { skipToken } from '@reduxjs/toolkit/query';
+import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
 
 type TripPageProps = {
   location: Location;
@@ -51,10 +52,11 @@ const mockData: TripPageProps = {
 //   "isDeleted": false
 // }
 
-export default function TripPage({ params }) {
+export default function TripPage({ params }:Params) {
   const pathname = usePathname();
-  console.log(params.slug)
-  const { data: tripData, isLoading, isSuccess } = useGetTripQuery(params.slug);
+  // console.log(params.slug);
+  // console.log(pathname);
+  const { data: tripData, isSuccess } = useGetTripQuery(params.slug);
 
   const tripLocationClass =
     tripData?.location === Location.Region
@@ -122,7 +124,13 @@ export default function TripPage({ params }) {
                 </p>
               </div>
             )}
-            <TripRequest location={tripData.location} groups={true} />
+            <TripRequest 
+            location={tripData.location} 
+            groups={true} 
+            availableDates={['01.04.2024','01.05.2024']} 
+            path={pathname}
+            eventName={tripData.name}
+            eventId={tripData.id}/>
           </div>
         </div>
       </div>}
