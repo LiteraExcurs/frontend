@@ -17,9 +17,10 @@ type TripPageProps = {
   subtitle: string;
   date: string | null;
   text: string;
-  pic: string;
+  image: string;
   groups: boolean;
   price: number;
+  availableDates: Array<string>;
 };
 
 const mockData: TripPageProps = {
@@ -28,9 +29,10 @@ const mockData: TripPageProps = {
   subtitle: 'Двухдневное путешествие для небольшой компании',
   date: null,
   text: `Узнаем об историческом прошлом города и о его знаменитых уроженцах. Прогуляемся по самому маленькому Кремлю России. Посетим дом-музей удивительного скульптора А.С. Голубкиной. Прогуляемся к «родовому гнезду» Фёдора Михайловича Достоевского и, если позволит погода, устроим пикник.`,
-  pic: '/images/trip.png',
+  image: '/images/trip.png',
   groups: true,
   price: 3500,
+  availableDates: ['01-01-2024', '05-01-2024', '10-02-2024'],
 };
 
 // {
