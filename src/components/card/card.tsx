@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import styles from './card.module.scss';
-import Image from 'next/image';
 import { Button } from '@/ui/button';
 import { ButtonType } from '@/ui/button/types';
 import { Location } from "@/utils/types";
