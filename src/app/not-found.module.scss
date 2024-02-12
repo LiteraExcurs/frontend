@@ -1,0 +1,11 @@
+@use './globals.scss';
+
+.page{
+  width: 100%;
+  height: 1024px;
+  background: url("../../public/images/404.svg") no-repeat center center;
+}
+
+.text{
+  color: globals.$secondary-color;
+}
