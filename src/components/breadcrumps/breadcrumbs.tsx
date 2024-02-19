@@ -12,10 +12,14 @@ export type BreadcrumbsProps = {
 }
 
 export const Breadcrumbs = (data: BreadcrumbsProps) => {
+    console.log(data)
   return (
     <nav className={styles['breadcrumbs']}>
       <ul className={styles['breadcrumbs__list']}>
         {data.data?.map(({ title, url, current }, index) => {
+          if (title === '' || title === undefined) {
+              return
+          }
           if (current) {
             return (
               <li key={index} className={styles['breadcrumbs__item']}>
