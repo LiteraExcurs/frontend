@@ -43,6 +43,8 @@ type TripPageProps = {
 
 export default function TripPage({ params }:Params) {
   const pathname = usePathname();
+
+  //TODO: Нужно типизировать входящие данные.
   const { data: tripData, isSuccess } = useGetTripQuery(params.slug);
 
   const tripLocationClass =
