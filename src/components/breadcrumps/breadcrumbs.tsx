@@ -1,31 +1,21 @@
 import Link from 'next/link';
 import styles from './breadcrumps.module.scss';
 
-const mockCrumbs = [
-  {
-    title: 'На главную',
-    url: '/',
-  },
-  {
-    title: 'Литературные прогулки',
-    url: '',
-  },
-  {
-    title: 'Из Москвы',
-    url: '',
-  },
-  {
-    title: 'Калуга',
-    url: '',
-    current: true,
-  },
-];
+interface BreadcrumbsElementProps  {
+  title: string | undefined;
+  url: string;
+  current?: boolean;
+}
 
-export const Breadcrumbs = () => {
+export type BreadcrumbsProps = {
+  data: Array<BreadcrumbsElementProps>
+}
+
+export const Breadcrumbs = (data: BreadcrumbsProps) => {
   return (
     <nav className={styles['breadcrumbs']}>
       <ul className={styles['breadcrumbs__list']}>
-        {mockCrumbs.map(({ title, url, current }, index) => {
+        {data.data?.map(({ title, url, current }, index) => {
           if (current) {
             return (
               <li key={index} className={styles['breadcrumbs__item']}>
