@@ -16,9 +16,10 @@ export const Modal = ({ title, children, closeFn }: ModalProps) => {
 
   useEffect(() => {
     document.body.style.overflow = 'hidden';
-
+    document.addEventListener("keydown", closeFn);
     return () => {
       document.body.style.overflow = 'unset';
+      document.removeEventListener("keydown", closeFn);
     };
   }, []);
 
