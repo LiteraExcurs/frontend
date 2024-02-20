@@ -17,11 +17,11 @@ export const FilterBar = () => {
     };
 
     const handleClickMoscow = () => {
-        setSelectedFilter('moscow');
+        setSelectedFilter('capital');
     };
 
     const handleClickOthers = () => {
-        setSelectedFilter('from-moscow');
+        setSelectedFilter('region');
     };
 
     useEffect(()=> {

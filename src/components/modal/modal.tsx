@@ -8,13 +8,23 @@ type ModalProps = {
   title: string;
   children: ReactElement;
   closeFn: () => void;
+  subtitle: string;
 };
 
-export const Modal = ({ title, children, closeFn }: ModalProps) => {
-  const [_, setState] = useState(false);
-  let targetEl: HTMLElement | null = document.getElementById('modals');
+export const Modal = ({ title, subtitle, children, closeFn }: ModalProps) => {
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.body.style.overflow = 'unset';
+
+    };
+  }, []);
+
+  useEffect(() => {
+    setMounted(true)
     document.body.style.overflow = 'hidden';
     document.addEventListener("keydown", handleEscKeydown);
     return () => {
@@ -27,16 +37,9 @@ export const Modal = ({ title, children, closeFn }: ModalProps) => {
     e.key === "Escape" && closeFn();
   };
 
-  useLayoutEffect(() => {
-    if (targetEl === null) {
-      targetEl = document.getElementById('modals');
-      setState((prev) => !prev);
-    }
-  }, [targetEl]);
-
   return (
     <>
-      {targetEl !== null &&
+      {mounted ?
         createPortal(
           <div className={styles.modal}>
             <Overlay onClick={closeFn} />
@@ -47,11 +50,16 @@ export const Modal = ({ title, children, closeFn }: ModalProps) => {
                 title="Закрыть окно"
               ></button>
               <h1 className={styles.headline}>{title}</h1>
+              <div className={styles.eventTextWrapper}>
+                <p className={styles.span}>На посещение мероприятия:</p>
+                <h2 className={styles.subtitle}>{subtitle}</h2>
+              </div>
               <div className={styles.elements}>{children}</div>
             </div>
           </div>,
-          targetEl
-        )}
+          document.body
+        )
+      : null}
     </>
   );
 };
