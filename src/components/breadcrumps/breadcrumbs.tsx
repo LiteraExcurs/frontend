@@ -12,7 +12,6 @@ export type BreadcrumbsProps = {
 }
 
 export const Breadcrumbs = (data: BreadcrumbsProps) => {
-    console.log(data)
   return (
     <nav className={styles['breadcrumbs']}>
       <ul className={styles['breadcrumbs__list']}>
