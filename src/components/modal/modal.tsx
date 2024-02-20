@@ -16,12 +16,16 @@ export const Modal = ({ title, children, closeFn }: ModalProps) => {
 
   useEffect(() => {
     document.body.style.overflow = 'hidden';
-    document.addEventListener("keydown", closeFn);
+    document.addEventListener("keydown", handleEscKeydown);
     return () => {
       document.body.style.overflow = 'unset';
-      document.removeEventListener("keydown", closeFn);
+      document.removeEventListener("keydown", handleEscKeydown);
     };
   }, []);
+
+  const handleEscKeydown = (e: { key: string }) => {
+    e.key === "Escape" && closeFn();
+  };
 
   useLayoutEffect(() => {
     if (targetEl === null) {
