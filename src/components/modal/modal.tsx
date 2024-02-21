@@ -19,47 +19,46 @@ export const Modal = ({ title, subtitle, children, closeFn }: ModalProps) => {
 
     return () => {
       document.body.style.overflow = 'unset';
-
     };
   }, []);
 
   useEffect(() => {
-    setMounted(true)
+    setMounted(true);
     document.body.style.overflow = 'hidden';
-    document.addEventListener("keydown", handleEscKeydown);
+    document.addEventListener('keydown', handleEscKeydown);
     return () => {
       document.body.style.overflow = 'unset';
-      document.removeEventListener("keydown", handleEscKeydown);
+      document.removeEventListener('keydown', handleEscKeydown);
     };
   }, []);
 
   const handleEscKeydown = (e: { key: string }) => {
-    e.key === "Escape" && closeFn();
+    e.key === 'Escape' && closeFn();
   };
 
   return (
     <>
-      {mounted ?
-        createPortal(
-          <div className={styles.modal}>
-            <Overlay onClick={closeFn} />
-            <div className={styles.container}>
-              <button
-                onClick={closeFn}
-                className={styles.closeBtn}
-                title="Закрыть окно"
-              ></button>
-              <h1 className={styles.headline}>{title}</h1>
-              <div className={styles.eventTextWrapper}>
-                <p className={styles.span}>На посещение мероприятия:</p>
-                <h2 className={styles.subtitle}>{subtitle}</h2>
+      {mounted
+        ? createPortal(
+            <div className={styles.modal}>
+              <Overlay onClick={closeFn} />
+              <div className={styles.container}>
+                <button
+                  onClick={closeFn}
+                  className={styles.closeBtn}
+                  title="Закрыть окно"
+                ></button>
+                <h1 className={styles.headline}>{title}</h1>
+                <div className={styles.eventTextWrapper}>
+                  <p className={styles.span}>На посещение мероприятия:</p>
+                  <h2 className={styles.subtitle}>{subtitle}</h2>
+                </div>
+                <div className={styles.elements}>{children}</div>
               </div>
-              <div className={styles.elements}>{children}</div>
-            </div>
-          </div>,
-          document.body
-        )
-      : null}
+            </div>,
+            document.body
+          )
+        : null}
     </>
   );
 };

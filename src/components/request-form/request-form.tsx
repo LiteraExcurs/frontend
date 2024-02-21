@@ -12,7 +12,12 @@ type RequestFormProps = {
   eventId: string;
 };
 
-export const RequestForm = ({ onSubmit, eventName, eventId, availableDates }: RequestFormProps) => {
+export const RequestForm = ({
+  onSubmit,
+  eventName,
+  eventId,
+  availableDates,
+}: RequestFormProps) => {
   const [data, setData] = useState<RequestData>({
     event: eventName,
     id: eventId,
