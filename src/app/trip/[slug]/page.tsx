@@ -9,8 +9,8 @@ import { Location } from '@/utils/types';
 import styles from './trip.module.scss';
 import { usePathname } from 'next/navigation';
 import { useGetTripQuery } from '@/services/api';
-import { skipToken } from '@reduxjs/toolkit/query';
 import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
+import {locationTranslator} from "@/utils/locationTranslator";
 
 type TripPageProps = {
   location: Location;
@@ -22,18 +22,7 @@ type TripPageProps = {
   groups: boolean;
   price: number;
   availableDates: Array<string>;
-};
-
-const mockData: TripPageProps = {
-  location: Location.Region,
-  title: 'Зарайск',
-  subtitle: 'Двухдневное путешествие для небольшой компании',
-  date: null,
-  text: `Узнаем об историческом прошлом города и о его знаменитых уроженцах. Прогуляемся по самому маленькому Кремлю России. Посетим дом-музей удивительного скульптора А.С. Голубкиной. Прогуляемся к «родовому гнезду» Фёдора Михайловича Достоевского и, если позволит погода, устроим пикник.`,
-  image: '/images/trip.png',
-  groups: true,
-  price: 3500,
-  availableDates: ['01-01-2024', '05-01-2024', '10-02-2024'],
+  slug: string;
 };
 
 // {
@@ -54,8 +43,8 @@ const mockData: TripPageProps = {
 
 export default function TripPage({ params }:Params) {
   const pathname = usePathname();
-  // console.log(params.slug);
-  // console.log(pathname);
+
+  //TODO: Нужно типизировать входящие данные.
   const { data: tripData, isSuccess } = useGetTripQuery(params.slug);
 
   const tripLocationClass =
@@ -75,11 +64,31 @@ export default function TripPage({ params }:Params) {
       ? 'price__value_location_region'
       : 'price__value_location_capital';
 
+  const crumbsData = [
+    {
+      title: 'На главную',
+      url: '/',
+    },
+    {
+      title: 'Литературные прогулки',
+      url: '',
+    },
+    {
+      title: locationTranslator(tripData?.location),
+      url: '',
+    },
+    {
+      title: tripData?.name,
+      url: `/trip/${tripData?.slug}`,
+      current: true,
+    },
+  ];
+
   return (
     <section className={`${styles['trip']} ${styles[tripLocationClass]}`}>
       {isSuccess &&
       <div className={styles['trip__container']}>
-        <Breadcrumbs />
+        { <Breadcrumbs data={crumbsData}/>}
         <div className={styles['trip__section']}>
           {/* <Image
             className={styles['trip__pic']}
