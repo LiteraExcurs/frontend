@@ -18,7 +18,14 @@ type TripRequestProps = {
   eventId: string;
 };
 
-export const TripRequest = ({ location, groups, availableDates, path, eventName, eventId }: TripRequestProps) => {
+export const TripRequest = ({
+  location,
+  groups,
+  availableDates,
+  path,
+  eventName,
+  eventId,
+}: TripRequestProps) => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const showRequestModal = searchParams.has('request');
@@ -33,15 +40,23 @@ export const TripRequest = ({ location, groups, availableDates, path, eventName,
   };
 
   const sendRequest = (data: RequestData) => {
-    //console.log(data);
     closeRequestModal();
   };
 
   return (
     <>
       {showRequestModal && (
-        <Modal title="Оставить заявку" subtitle={eventName} closeFn={closeRequestModal}>
-          <RequestForm eventId={eventId} eventName={eventName} onSubmit={sendRequest} availableDates={availableDates} />
+        <Modal
+          title="Оставить заявку"
+          subtitle={eventName}
+          closeFn={closeRequestModal}
+        >
+          <RequestForm
+            eventId={eventId}
+            eventName={eventName}
+            onSubmit={sendRequest}
+            availableDates={availableDates}
+          />
         </Modal>
       )}
 

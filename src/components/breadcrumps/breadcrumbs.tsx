@@ -1,15 +1,15 @@
 import Link from 'next/link';
 import styles from './breadcrumps.module.scss';
 
-interface BreadcrumbsElementProps  {
+interface BreadcrumbsElementProps {
   title: string | undefined;
   url: string;
   current?: boolean;
 }
 
 export type BreadcrumbsProps = {
-  data: Array<BreadcrumbsElementProps>
-}
+  data: Array<BreadcrumbsElementProps>;
+};
 
 export const Breadcrumbs = (data: BreadcrumbsProps) => {
   return (
@@ -17,7 +17,7 @@ export const Breadcrumbs = (data: BreadcrumbsProps) => {
       <ul className={styles['breadcrumbs__list']}>
         {data.data?.map(({ title, url, current }, index) => {
           if (title === '' || title === undefined) {
-              return
+            return;
           }
           if (current) {
             return (
