@@ -19,17 +19,23 @@ export const Modal = ({ title, subtitle, children, closeFn }: ModalProps) => {
 
     return () => {
       document.body.style.overflow = 'unset';
+
     };
   }, []);
 
   useEffect(() => {
     setMounted(true)
     document.body.style.overflow = 'hidden';
-  
+    document.addEventListener("keydown", handleEscKeydown);
     return () => {
       document.body.style.overflow = 'unset';
+      document.removeEventListener("keydown", handleEscKeydown);
     };
   }, []);
+
+  const handleEscKeydown = (e: { key: string }) => {
+    e.key === "Escape" && closeFn();
+  };
 
   return (
     <>
