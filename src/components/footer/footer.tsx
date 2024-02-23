@@ -7,12 +7,13 @@ import Link from 'next/link'
 import { InputField } from '@/ui/input-field/input-field'
 import { Button } from '@/ui/button'
 import { ButtonType } from '@/ui/button/types'
-import { FormEvent } from 'react'
+import {ChangeEvent, FormEvent} from 'react'
 
 export const Footer = () => {
     const handleForm = (e: FormEvent) => {
         e.preventDefault();
     }
+    const onChange = (event: ChangeEvent<HTMLInputElement>) => {}
     return(
         <footer className={styles.footer}>
             <Image className={styles.icon} src={darkLogo} alt='Логотип компании'/>
@@ -32,7 +33,7 @@ export const Footer = () => {
                 <div>
                     <h3 className={styles.navTitle}>Подписаться на новости</h3>
                     <form onSubmit={handleForm} className={styles.subsBar}>
-                        <InputField type='subscribe' />
+                        <InputField type='subscribe'  name="subscribe" value={""} onChange={onChange}/>
                         <Button 
                         buttonType={ButtonType.Subscribe}
                         label='Подписаться'/>
