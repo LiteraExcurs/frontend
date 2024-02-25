@@ -1,4 +1,4 @@
-import { ReactElement, useEffect, useLayoutEffect, useState } from 'react';
+import { ReactElement, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { Overlay } from './overlay';
 
@@ -13,14 +13,6 @@ type ModalProps = {
 
 export const Modal = ({ title, subtitle, children, closeFn }: ModalProps) => {
   const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    document.body.style.overflow = 'hidden';
-
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, []);
 
   useEffect(() => {
     setMounted(true);

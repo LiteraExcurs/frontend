@@ -8,7 +8,7 @@ const URL = 'http://localhost:3001';
 
 export const appApi = createApi({
   reducerPath: 'api',
-  tagTypes: ['Activity', 'Event', 'Guides'],
+  tagTypes: ['Activity', 'Event', 'Guides', 'Booking'],
   baseQuery: fetchBaseQuery({ baseUrl: URL }),
   endpoints: (build) => ({
     getAllActivities: build.query({
@@ -17,14 +17,20 @@ export const appApi = createApi({
     getActivitiesByFilter: build.query({
       query: (params) => (params ? `/activity?tours=${params}` : `/activity`),
     }),
-    getActivitiesById: build.query({
-      query: (id) => (id ? `/activity/${id}` : `/activity`),
-    }),
     getTrip: build.query({
       query: (slug) => `activity/trip/${slug}`,
     }),
     getGuides: build.query<any, void>({
       query: () => `guides`,
+    }),
+    addBooking: build.mutation({
+      query: (body) => {
+        return {
+          url: `booking`,
+          method: 'POST',
+          body,
+        };
+      },
     }),
   }),
 });
@@ -32,7 +38,7 @@ export const appApi = createApi({
 export const {
   useGetAllActivitiesQuery,
   useGetActivitiesByFilterQuery,
-  useGetActivitiesByIdQuery,
   useGetTripQuery,
   useGetGuidesQuery,
+  useAddBookingMutation,
 } = appApi;
