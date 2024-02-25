@@ -4,7 +4,7 @@ import { Button, ButtonType } from '@/ui/button';
 import type { RequestData } from '@/components/trip-request';
 
 import styles from './request-form.module.scss';
-import {useAddBookingMutation} from "@/services/api";
+import { useAddBookingMutation } from '@/services/api';
 
 type RequestFormProps = {
   onSubmit: (data: RequestData) => void;
@@ -27,7 +27,6 @@ export const RequestForm = ({
   eventId,
   availableDates,
 }: RequestFormProps) => {
-
   const [data, setData] = useState<RequestData>({
     event: eventName,
     id: eventId,
@@ -56,14 +55,13 @@ export const RequestForm = ({
       }));
     }
   };
-    const [addBooking, {isError}] = useAddBookingMutation();
+  const [addBooking, { isError }] = useAddBookingMutation();
   const handleSubmit = (evt: FormEvent) => {
     evt.preventDefault();
     onSubmit(data);
-      // eslint-disable-next-line react-hooks/rules-of-hooks
     addBooking(data);
   };
-    console.log(data)
+
   return (
     <form ref={formRef} onSubmit={handleSubmit}>
       <InputField
