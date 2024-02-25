@@ -17,11 +17,14 @@ export const appApi = createApi({
     getActivitiesByFilter: build.query({
       query: (params) => (params ? `/activity?tours=${params}` : `/activity`),
     }),
+    getActivitiesById: build.query({
+      query: (id) => (id ? `/activity/${id}` : `/activity`),
+    }),
     getTrip: build.query({
       query: (slug) => `activity/trip/${slug}`,
     }),
-    getGuides: build.query<any, void>( {
-      query: () =>  `guides`
+    getGuides: build.query<any, void>({
+      query: () => `guides`,
     }),
   }),
 });
@@ -29,6 +32,7 @@ export const appApi = createApi({
 export const {
   useGetAllActivitiesQuery,
   useGetActivitiesByFilterQuery,
+  useGetActivitiesByIdQuery,
   useGetTripQuery,
   useGetGuidesQuery,
 } = appApi;

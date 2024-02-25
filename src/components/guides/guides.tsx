@@ -18,7 +18,6 @@ type TGuide = {
 
 export const Guides = () => {
   const { data: guides, isLoading } = useGetGuidesQuery();
-  console.warn(guides);
   return (
     <section className={styles.wrapper}>
       <h2 className={styles.title}>НАШИ РАССКАЗЧИЦЫ</h2>

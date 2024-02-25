@@ -1,16 +1,15 @@
 'use client';
 import Image from 'next/image';
-
 import { Breadcrumbs } from '@/components/breadcrumps';
 import { TripDate } from '@/components/trip-date';
 import { TripRequest } from '@/components/trip-request';
 import { Location } from '@/utils/types';
-
 import styles from './trip.module.scss';
 import { usePathname } from 'next/navigation';
 import { useGetTripQuery } from '@/services/api';
 import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
 import { locationTranslator } from '@/utils/locationTranslator';
+import {log} from "node:util";
 
 type TripPageProps = {
   location: Location;
@@ -46,7 +45,7 @@ export default function TripPage({ params }: Params) {
 
   //TODO: Нужно типизировать входящие данные.
   const { data: tripData, isSuccess } = useGetTripQuery(params.slug);
-
+ // console.log(tripData.events[0].date)
   const tripLocationClass =
     tripData?.location === Location.Region
       ? 'trip_location_region'
@@ -84,9 +83,15 @@ export default function TripPage({ params }: Params) {
     },
   ];
 
+  const tripDate = new Date(tripData?.events[0]?.date).toLocaleString("ru", {
+    year: 'numeric',
+    month: 'numeric',
+    day: 'numeric',
+  })
   return (
     <section className={`${styles['trip']} ${styles[tripLocationClass]}`}>
       {isSuccess && (
+
         <div className={styles['trip__container']}>
           {<Breadcrumbs data={crumbsData} />}
           <div className={styles['trip__section']}>
@@ -118,7 +123,7 @@ export default function TripPage({ params }: Params) {
                 </div>
                 <TripDate
                   location={tripData.location}
-                  date={tripData.date ? tripData.date : undefined}
+                  date={!tripData?.events[0]?.date ? undefined : tripDate}
                 />
               </div>
               <p className={styles['trip__text']}>{tripData.description}</p>
