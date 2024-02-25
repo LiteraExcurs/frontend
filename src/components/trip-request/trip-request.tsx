@@ -13,9 +13,19 @@ type TripRequestProps = {
   location: Location;
   groups: boolean;
   availableDates: Array<string>;
+  path: string;
+  eventName: string;
+  eventId: string;
 };
 
-export const TripRequest = ({ location, groups, availableDates }: TripRequestProps) => {
+export const TripRequest = ({
+  location,
+  groups,
+  availableDates,
+  path,
+  eventName,
+  eventId,
+}: TripRequestProps) => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const showRequestModal = searchParams.has('request');
@@ -26,19 +36,27 @@ export const TripRequest = ({ location, groups, availableDates }: TripRequestPro
       : 'request__comment_location_capital';
 
   const closeRequestModal = () => {
-    router.push('/trip', { scroll: false });
+    router.replace(path, { scroll: false });
   };
 
   const sendRequest = (data: RequestData) => {
-    console.log(data);
     closeRequestModal();
   };
 
   return (
     <>
       {showRequestModal && (
-        <Modal title="Оставить заявку" closeFn={closeRequestModal}>
-          <RequestForm onSubmit={sendRequest} availableDates={availableDates} />
+        <Modal
+          title="Оставить заявку"
+          subtitle={eventName}
+          closeFn={closeRequestModal}
+        >
+          <RequestForm
+            eventId={eventId}
+            eventName={eventName}
+            onSubmit={sendRequest}
+            availableDates={availableDates}
+          />
         </Modal>
       )}
 
@@ -47,7 +65,7 @@ export const TripRequest = ({ location, groups, availableDates }: TripRequestPro
           buttonType={ButtonType.Request}
           label="Оставить заявку"
           location={location}
-          onClick={() => router.push('/trip?request', { scroll: false })}
+          onClick={() => router.push(`${path}?request`, { scroll: false })}
           extraClass={styles['request__button']}
         />
         {groups && (

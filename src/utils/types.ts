@@ -1,4 +1,4 @@
 export enum Location {
-  Capital = 'capital',
-  Region = 'region',
+  Capital = 'Moscow',
+  Region = 'noMoscow',
 }

@@ -4,4 +4,6 @@ export type RequestData = {
   email: string;
   visitors: string;
   date: string;
+  event: string;
+  id: string;
 };

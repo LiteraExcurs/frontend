@@ -8,15 +8,41 @@ import styles from './request-form.module.scss';
 type RequestFormProps = {
   onSubmit: (data: RequestData) => void;
   availableDates: Array<string>;
+  eventName: string;
+  eventId: string;
 };
 
-export const RequestForm = ({ onSubmit, availableDates }: RequestFormProps) => {
+type FormError = {
+  nameError: string;
+  phoneError: string;
+  emailError: string;
+  visitorsError: string;
+  dateError: string;
+};
+
+export const RequestForm = ({
+  onSubmit,
+  eventName,
+  eventId,
+  availableDates,
+}: RequestFormProps) => {
+
   const [data, setData] = useState<RequestData>({
+    event: eventName,
+    id: eventId,
     name: '',
     phone: '',
     email: '',
     visitors: '',
     date: availableDates.join(', '),
+  });
+
+  const [error, setError] = useState<FormError>({
+    nameError: '',
+    phoneError: '',
+    emailError: '',
+    visitorsError: '',
+    dateError: '',
   });
   const formRef = useRef<HTMLFormElement | null>(null);
 

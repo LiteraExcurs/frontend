@@ -1,4 +1,4 @@
-@use '../../app/globals.scss';
+@use '../../../app/globals.scss';
 
 .trip {
   padding: 40px 0 60px;
@@ -36,8 +36,10 @@
 
   &__pic {
     flex-shrink: 0;
-    object-fit: contain;
+    object-fit: cover;
     border-radius: 40px;
+    width: 420px;
+    height: 625px;
   }
 
   &__header {
