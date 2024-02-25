@@ -9,7 +9,6 @@ import { usePathname } from 'next/navigation';
 import { useGetTripQuery } from '@/services/api';
 import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
 import { locationTranslator } from '@/utils/locationTranslator';
-import {log} from "node:util";
 
 type TripPageProps = {
   location: Location;
