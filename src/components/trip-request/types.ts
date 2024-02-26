@@ -1,9 +1,9 @@
 export type RequestData = {
   name: string;
-  phone: string;
+  phoneNumber: string;
   email: string;
-  visitors: string;
+  visitors: number;
   date: string;
   event: string;
-  id: string;
+  eventId: number;
 };

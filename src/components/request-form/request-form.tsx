@@ -29,11 +29,11 @@ export const RequestForm = ({
 }: RequestFormProps) => {
   const [data, setData] = useState<RequestData>({
     event: eventName,
-    id: eventId,
+    eventId: 35, //TODO: Получать Id из ивентов.
     name: '',
-    phone: '',
+    phoneNumber: '',
     email: '',
-    visitors: '',
+    visitors: 0,
     date: availableDates.join(', '),
   });
 
@@ -45,7 +45,7 @@ export const RequestForm = ({
     dateError: '',
   });
   const formRef = useRef<HTMLFormElement | null>(null);
-
+    console.log(data)
   const handleChange = (evt: ChangeEvent<HTMLInputElement>) => {
     if (evt?.target) {
       const { name, value } = evt.target;
@@ -71,8 +71,8 @@ export const RequestForm = ({
         onChange={handleChange}
       />
       <InputField
-        name="phone"
-        value={data.phone}
+        name="phoneNumber"
+        value={data.phoneNumber}
         placeholder="Телефон"
         onChange={handleChange}
       />
@@ -82,12 +82,12 @@ export const RequestForm = ({
         placeholder="E-mail"
         onChange={handleChange}
       />
-      <InputField
+{/*      <InputField
         name="visitors"
         value={data.visitors}
         placeholder="Количество посетителей"
         onChange={handleChange}
-      />
+      />*/}
       <InputField
         name="date"
         value={data.date}
