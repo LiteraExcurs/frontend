@@ -40,6 +40,7 @@ type TripPageProps = {
 // }
 
 export default function TripPage({ params }: Params) {
+  console.log(params)
   const pathname = usePathname();
 
   //TODO: Нужно типизировать входящие данные.

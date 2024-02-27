@@ -2,9 +2,9 @@ import { useState, useRef, FormEvent, ChangeEvent } from 'react';
 import { InputField } from '@/ui/input-field';
 import { Button, ButtonType } from '@/ui/button';
 import type { RequestData } from '@/components/trip-request';
-
 import styles from './request-form.module.scss';
 import { useAddBookingMutation } from '@/services/api';
+import { SelectField } from '@/ui/select-field/select-field';
 
 type RequestFormProps = {
   onSubmit: (data: RequestData) => void;
@@ -88,12 +88,7 @@ export const RequestForm = ({
         placeholder="Количество посетителей"
         onChange={handleChange}
       />*/}
-      <InputField
-        name="date"
-        value={data.date}
-        placeholder="Дата экскурсии"
-        onChange={handleChange}
-      />
+      <SelectField/>
       <Button
         buttonType={ButtonType.Send}
         label="Отправить"
