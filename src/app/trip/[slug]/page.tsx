@@ -8,7 +8,7 @@ import styles from './trip.module.scss';
 import { usePathname } from 'next/navigation';
 import { useGetTripQuery } from '@/services/api';
 import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
-import { locationTranslator } from '@/utils/locationTranslator';
+import { crumbsData } from '@/data/crumbsData';
 
 type TripPageProps = {
   location: Location;
@@ -40,12 +40,14 @@ type TripPageProps = {
 // }
 
 export default function TripPage({ params }: Params) {
-  console.log(params)
+  console.log(params);
   const pathname = usePathname();
 
   //TODO: Нужно типизировать входящие данные.
   const { data: tripData, isSuccess } = useGetTripQuery(params.slug);
- // console.log(tripData.events[0].date)
+  // console.log(tripData.events[0].date)
+
+  //todo: Перенести переключатели стилей в отдельный файл
   const tripLocationClass =
     tripData?.location === Location.Region
       ? 'trip_location_region'
@@ -63,37 +65,16 @@ export default function TripPage({ params }: Params) {
       ? 'price__value_location_region'
       : 'price__value_location_capital';
 
-  const crumbsData = [
-    {
-      title: 'На главную',
-      url: '/',
-    },
-    {
-      title: 'Литературные прогулки',
-      url: '',
-    },
-    {
-      title: locationTranslator(tripData?.location),
-      url: '',
-    },
-    {
-      title: tripData?.name,
-      url: `/trip/${tripData?.slug}`,
-      current: true,
-    },
-  ];
-
-  const tripDate = new Date(tripData?.events[0]?.date).toLocaleString("ru", {
+  const tripDate = new Date(tripData?.events[0]?.date).toLocaleString('ru', {
     year: 'numeric',
     month: 'numeric',
     day: 'numeric',
-  })
+  });
   return (
     <section className={`${styles['trip']} ${styles[tripLocationClass]}`}>
       {isSuccess && (
-
         <div className={styles['trip__container']}>
-          {<Breadcrumbs data={crumbsData} />}
+          {<Breadcrumbs data={crumbsData(tripData)} />}
           <div className={styles['trip__section']}>
             {/* <Image
             className={styles['trip__pic']}
