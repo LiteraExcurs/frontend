@@ -7,7 +7,6 @@ import { Location } from '@/utils/types';
 import styles from './trip.module.scss';
 import { usePathname } from 'next/navigation';
 import { useGetTripQuery } from '@/services/api';
-import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
 import { crumbsData } from '@/data/crumbsData';
 
 type TripPageProps = {
@@ -38,13 +37,17 @@ type TripPageProps = {
 //   "isActive": true,
 //   "isDeleted": false
 // }
-
-export default function TripPage({ params }: Params) {
-  console.log(params);
+type TCustomParams = {
+  params: {
+    slug: string;
+  };
+};
+export default function TripPage(params: TCustomParams) {
+  const slug = params.params.slug;
   const pathname = usePathname();
 
   //TODO: Нужно типизировать входящие данные.
-  const { data: tripData, isSuccess } = useGetTripQuery(params.slug);
+  const { data: tripData, isSuccess } = useGetTripQuery(slug);
   // console.log(tripData.events[0].date)
 
   //todo: Перенести переключатели стилей в отдельный файл
