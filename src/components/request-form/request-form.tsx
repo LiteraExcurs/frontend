@@ -10,7 +10,7 @@ type RequestFormProps = {
   onSubmit: (data: RequestData) => void;
   availableDates: Array<string>;
   eventName: string;
-  eventId: string;
+  events: Array<TouchEvent>;
 };
 
 type FormError = {
@@ -21,12 +21,7 @@ type FormError = {
   dateError: string;
 };
 
-export const RequestForm = ({
-  onSubmit,
-  eventName,
-  eventId,
-  availableDates,
-}: RequestFormProps) => {
+export const RequestForm = ({ onSubmit, events }: RequestFormProps) => {
   const [data, setData] = useState<RequestData>({
     event: eventName,
     eventId: 35, //TODO: Получать Id из ивентов.
@@ -34,7 +29,7 @@ export const RequestForm = ({
     phoneNumber: '',
     email: '',
     visitors: 0,
-    date: availableDates.join(', '),
+    date: ''
   });
 
   const [error, setError] = useState<FormError>({
@@ -45,7 +40,6 @@ export const RequestForm = ({
     dateError: '',
   });
   const formRef = useRef<HTMLFormElement | null>(null);
-    console.log(data)
   const handleChange = (evt: ChangeEvent<HTMLInputElement>) => {
     if (evt?.target) {
       const { name, value } = evt.target;
@@ -82,13 +76,13 @@ export const RequestForm = ({
         placeholder="E-mail"
         onChange={handleChange}
       />
-{/*      <InputField
+      {/*      <InputField
         name="visitors"
         value={data.visitors}
         placeholder="Количество посетителей"
         onChange={handleChange}
       />*/}
-      <SelectField/>
+      <SelectField />
       <Button
         buttonType={ButtonType.Send}
         label="Отправить"

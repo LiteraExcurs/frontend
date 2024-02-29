@@ -48,7 +48,6 @@ export default function TripPage(params: TCustomParams) {
 
   //TODO: Нужно типизировать входящие данные.
   const { data: tripData, isSuccess } = useGetTripQuery(slug);
-  // console.log(tripData.events[0].date)
 
   //todo: Перенести переключатели стилей в отдельный файл
   const tripLocationClass =
@@ -73,6 +72,9 @@ export default function TripPage(params: TCustomParams) {
     month: 'numeric',
     day: 'numeric',
   });
+
+  const eventsData = tripData?.events;
+  console.log(eventsData);
   return (
     <section className={`${styles['trip']} ${styles[tripLocationClass]}`}>
       {isSuccess && (
@@ -137,6 +139,7 @@ export default function TripPage(params: TCustomParams) {
                 path={pathname}
                 eventName={tripData.name}
                 eventId={tripData.id}
+                events={tripData}
               />
             </div>
           </div>

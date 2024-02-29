@@ -4,7 +4,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { Modal } from '../modal';
 import { Button, ButtonType } from '@/ui/button';
 import { RequestForm } from '@/components/request-form';
-import { Location } from '@/utils/types';
+import { Location, TEvent } from '@/utils/types';
 import { RequestData } from './types';
 
 import styles from './trip-request.module.scss';
@@ -14,8 +14,7 @@ type TripRequestProps = {
   groups: boolean;
   availableDates: Array<string>;
   path: string;
-  eventName: string;
-  eventId: string;
+  events: Array<TEvent>
 };
 
 export const TripRequest = ({
@@ -23,8 +22,7 @@ export const TripRequest = ({
   groups,
   availableDates,
   path,
-  eventName,
-  eventId,
+  events
 }: TripRequestProps) => {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -52,8 +50,6 @@ export const TripRequest = ({
           closeFn={closeRequestModal}
         >
           <RequestForm
-            eventId={eventId}
-            eventName={eventName}
             onSubmit={sendRequest}
             availableDates={availableDates}
           />
