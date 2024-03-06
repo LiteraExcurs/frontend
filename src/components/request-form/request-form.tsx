@@ -5,12 +5,13 @@ import type { RequestData } from '@/components/trip-request';
 import styles from './request-form.module.scss';
 import { useAddBookingMutation } from '@/services/api';
 import { SelectField } from '@/ui/select-field/select-field';
+import { TEvent, TEventsData } from '@/components/trip-request/types';
 
 type RequestFormProps = {
   onSubmit: (data: RequestData) => void;
-  availableDates: Array<string>;
   eventName: string;
-  events: Array<TouchEvent>;
+  events: TEventsData;
+  eventId: number;
 };
 
 type FormError = {
@@ -21,15 +22,15 @@ type FormError = {
   dateError: string;
 };
 
-export const RequestForm = ({ onSubmit, events }: RequestFormProps) => {
+export const RequestForm = ({ onSubmit, eventName, events }: RequestFormProps) => {
   const [data, setData] = useState<RequestData>({
     event: eventName,
-    eventId: 35, //TODO: Получать Id из ивентов.
+    eventId: events[0].id,
     name: '',
     phoneNumber: '',
     email: '',
     visitors: 0,
-    date: ''
+    date: '',
   });
 
   const [error, setError] = useState<FormError>({
@@ -82,7 +83,7 @@ export const RequestForm = ({ onSubmit, events }: RequestFormProps) => {
         placeholder="Количество посетителей"
         onChange={handleChange}
       />*/}
-      <SelectField />
+
       <Button
         buttonType={ButtonType.Send}
         label="Отправить"

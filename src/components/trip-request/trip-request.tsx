@@ -4,25 +4,23 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { Modal } from '../modal';
 import { Button, ButtonType } from '@/ui/button';
 import { RequestForm } from '@/components/request-form';
-import { Location, TEvent } from '@/utils/types';
-import { RequestData } from './types';
+import { Location } from '@/utils/types';
+import { RequestData, TEvent, TEventsData } from './types';
 
 import styles from './trip-request.module.scss';
 
 type TripRequestProps = {
   location: Location;
   groups: boolean;
-  availableDates: Array<string>;
   path: string;
-  events: Array<TEvent>
+  events: TEventsData;
 };
 
 export const TripRequest = ({
   location,
   groups,
-  availableDates,
   path,
-  events
+  events,
 }: TripRequestProps) => {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -46,12 +44,14 @@ export const TripRequest = ({
       {showRequestModal && (
         <Modal
           title="Оставить заявку"
-          subtitle={eventName}
+          subtitle={events[0].name}
           closeFn={closeRequestModal}
         >
           <RequestForm
             onSubmit={sendRequest}
-            availableDates={availableDates}
+            eventName={events[0].name}
+            events={events}
+            eventId={events[0].id}
           />
         </Modal>
       )}

@@ -8,6 +8,7 @@ import styles from './trip.module.scss';
 import { usePathname } from 'next/navigation';
 import { useGetTripQuery } from '@/services/api';
 import { crumbsData } from '@/data/crumbsData';
+import { TEventsData } from '@/components/trip-request/types';
 
 type TripPageProps = {
   location: Location;
@@ -18,7 +19,7 @@ type TripPageProps = {
   image: string;
   groups: boolean;
   price: number;
-  availableDates: Array<string>;
+  events: TEventsData;
   slug: string;
 };
 
@@ -74,7 +75,7 @@ export default function TripPage(params: TCustomParams) {
   });
 
   const eventsData = tripData?.events;
-  console.log(eventsData);
+
   return (
     <section className={`${styles['trip']} ${styles[tripLocationClass]}`}>
       {isSuccess && (
@@ -135,11 +136,8 @@ export default function TripPage(params: TCustomParams) {
               <TripRequest
                 location={tripData.location}
                 groups={true}
-                availableDates={['01.04.2024', '01.05.2024']}
                 path={pathname}
-                eventName={tripData.name}
-                eventId={tripData.id}
-                events={tripData}
+                events={tripData.events}
               />
             </div>
           </div>

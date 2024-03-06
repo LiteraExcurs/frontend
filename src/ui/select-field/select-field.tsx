@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import styles from '@/ui/input-field/basic-input.module.scss';
+import { TEventsData } from '@/components/trip-request/types';
 
-export const SelectField = () => {
+export const SelectField = (data: TEventsData) => {
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
@@ -11,11 +12,9 @@ export const SelectField = () => {
   return (
     <div>
       <select className={styles.input} id="cities">
-        <option value="Naples">Naples</option>
-        <option value="London">London</option>
-        <option value="Berlin">Berlin</option>
-        <option value="New York">New York</option>
-        <option value="Frattamaggiore">Frattamaggiore</option>
+        {data && data?.map(({date}, index) => {
+         return <option key={index}>{date}</option>;
+        })}
       </select>
     </div>
   );
