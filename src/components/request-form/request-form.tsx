@@ -22,10 +22,15 @@ type FormError = {
   dateError: string;
 };
 
-export const RequestForm = ({ onSubmit, eventName, events }: RequestFormProps) => {
+export const RequestForm = ({
+  onSubmit,
+  eventName,
+  eventId,
+  events,
+}: RequestFormProps) => {
   const [data, setData] = useState<RequestData>({
     event: eventName,
-    eventId: events[0].id,
+    eventId: eventId,
     name: '',
     phoneNumber: '',
     email: '',
@@ -56,7 +61,7 @@ export const RequestForm = ({ onSubmit, eventName, events }: RequestFormProps) =
     onSubmit(data);
     addBooking(data);
   };
-
+  console.log(events);
   return (
     <form ref={formRef} onSubmit={handleSubmit}>
       <InputField
@@ -83,7 +88,7 @@ export const RequestForm = ({ onSubmit, eventName, events }: RequestFormProps) =
         placeholder="Количество посетителей"
         onChange={handleChange}
       />*/}
-
+      <SelectField data={events} />
       <Button
         buttonType={ButtonType.Send}
         label="Отправить"
