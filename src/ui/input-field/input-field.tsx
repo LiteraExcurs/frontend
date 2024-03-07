@@ -2,6 +2,8 @@ import styles from './input-field.module.scss';
 import searchIcon from '../../../public/images/Vector.svg';
 import Image from 'next/image';
 import { BasicInput } from '@/ui/input-field/basic-input';
+import { Simulate } from 'react-dom/test-utils';
+import error = Simulate.error;
 
 type InputFieldProps = {
   name: string;
@@ -9,6 +11,7 @@ type InputFieldProps = {
   value: string;
   placeholder?: string;
   onChange: (evt: any) => void;
+  error?: string;
 };
 
 export const InputField = ({
@@ -17,6 +20,7 @@ export const InputField = ({
   value,
   placeholder = '',
   onChange,
+  error
 }: InputFieldProps) => {
   if (type === 'basic') {
     return (
@@ -41,9 +45,12 @@ export const InputField = ({
       </button>
     </div>
   ) : (
-    <input
-      className={styles.inputSubs}
-      placeholder="e-mail@example.com"
-    ></input>
+    <>
+      <input
+        className={styles.inputSubs}
+        placeholder="e-mail@example.com"
+      ></input>
+      <span>{error}</span>
+    </>
   );
 };

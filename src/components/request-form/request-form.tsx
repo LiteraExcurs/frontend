@@ -61,7 +61,7 @@ export const RequestForm = ({
     onSubmit(data);
     addBooking(data);
   };
-  console.log(events);
+
   return (
     <form ref={formRef} onSubmit={handleSubmit}>
       <InputField
@@ -82,14 +82,9 @@ export const RequestForm = ({
         placeholder="E-mail"
         onChange={handleChange}
       />
-      {/*      <InputField
-        name="visitors"
-        value={data.visitors}
-        placeholder="Количество посетителей"
-        onChange={handleChange}
-      />*/}
       <SelectField data={events} />
       <Button
+        type={'submit'}
         buttonType={ButtonType.Send}
         label="Отправить"
         extraClass={styles.button}

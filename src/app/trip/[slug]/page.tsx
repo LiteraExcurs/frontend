@@ -23,21 +23,6 @@ type TripPageProps = {
   slug: string;
 };
 
-// {
-//   "id": 2,
-//   "createdAt": "2023-12-15T12:53:21.373Z",
-//   "updatedAt": "2023-12-15T12:53:21.373Z",
-//   "name": "Булгаковский дом",
-//   "subtitle": "Музей-театр \"Дом Булгакова\"",
-//   "season": "winter",
-//   "type": "excursion",
-//   "location": "capital",
-//   "description": "Описание экскурсии. Пусть в этот раз оно будет чуть длиннее одного слова, чтобы можно было посмотреть на длинное описание и как оно выглядит в общей таблице, а также на странице редактирования активности.",
-//   "slug": "dom-bulgakova",
-//   "image": "https://kudamoscow.ru/uploads/7d43773e67a1c60fb31d5c9678ec6522.jpg",
-//   "isActive": true,
-//   "isDeleted": false
-// }
 type TCustomParams = {
   params: {
     slug: string;
