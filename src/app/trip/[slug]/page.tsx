@@ -32,6 +32,7 @@ export default function TripPage(params: TCustomParams) {
   const slug = params.params.slug;
   const pathname = usePathname();
 
+
   //TODO: Нужно типизировать входящие данные.
   const { data: tripData, isSuccess } = useGetTripQuery(slug);
 
@@ -58,8 +59,6 @@ export default function TripPage(params: TCustomParams) {
     month: 'numeric',
     day: 'numeric',
   });
-
-  const eventsData = tripData?.events;
 
   return (
     <section className={`${styles['trip']} ${styles[tripLocationClass]}`}>

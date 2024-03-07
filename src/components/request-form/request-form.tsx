@@ -14,13 +14,6 @@ type RequestFormProps = {
   eventId: number;
 };
 
-type FormError = {
-  nameError: string;
-  phoneError: string;
-  emailError: string;
-  visitorsError: string;
-  dateError: string;
-};
 
 export const RequestForm = ({
   onSubmit,
@@ -38,13 +31,6 @@ export const RequestForm = ({
     date: '',
   });
 
-  const [error, setError] = useState<FormError>({
-    nameError: '',
-    phoneError: '',
-    emailError: '',
-    visitorsError: '',
-    dateError: '',
-  });
   const formRef = useRef<HTMLFormElement | null>(null);
   const handleChange = (evt: ChangeEvent<HTMLInputElement>) => {
     if (evt?.target) {
@@ -55,6 +41,8 @@ export const RequestForm = ({
       }));
     }
   };
+
+  // Отправка формы на сервер
   const [addBooking, { isError }] = useAddBookingMutation();
   const handleSubmit = (evt: FormEvent) => {
     evt.preventDefault();
@@ -82,6 +70,7 @@ export const RequestForm = ({
         placeholder="E-mail"
         onChange={handleChange}
       />
+
       <SelectField data={events} />
       <Button
         type={'submit'}
