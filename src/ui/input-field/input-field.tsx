@@ -2,8 +2,7 @@ import styles from './input-field.module.scss';
 import searchIcon from '../../../public/images/Vector.svg';
 import Image from 'next/image';
 import { BasicInput } from '@/ui/input-field/basic-input';
-import { Simulate } from 'react-dom/test-utils';
-import error = Simulate.error;
+
 
 type InputFieldProps = {
   name: string;
